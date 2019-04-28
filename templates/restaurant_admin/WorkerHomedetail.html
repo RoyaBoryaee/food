@@ -1,120 +1,131 @@
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static 'Restaurant_admin/assets/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'Restaurant_admin/css/Wtable.css' %}">
 <html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<table class="table table-hover">
-  <thead>
+<header class="top_header topnav">
+    <div class="nav_items">
+        <a href="{% url 'restaurant_admin:admin_home' %}">هزینه</a>
+         <a href="{% url 'restaurant_admin:admin_home' %}">میزها</a>
+      <a href="{% url 'restaurant_admin:admin_home' %}">غذا</a>
+        <a href="{% url 'restaurant_admin:admin_home' %}">خانه</a>
+    </div>
+</header>
+<main class="main_content">
+<table id="table" class="table table-hover">
+    <thead>
     <tr>
-
-                            <th >نام خانوادگی</th>
-                            <th >نام</th>
-                            <th >سمت</th>
-                            <th>شماره ملی</th>
-                            <!-- <th class="cell100 column5">شماره تماس</th> -->
-                            <!-- <th class="cell100 column5">تغییرات</th>
-                            <th class="cell100 column6">حذف</th> -->
-                          </tr>
-                      </thead>
-
-<tbody>
-                {% for worker in object_list %}
-                  <tr>
-
-                                <td >{{ worker.name }}</td>
-                                <td >{{ worker.f_name }}</td>
-                                <td >{{ worker.position }}</td>
-                                <td >{{ worker.national_code }}</td>
-                                <!-- <td class="cell100 column5">{{ worker.phone_number }}</td> -->
-                                 <!-- <td class="cell100 column5"><form method="post">
-                                  {% csrf_token %}
-                                  <input type="hidden" name="worker_id" value="{{ worker.pk }}">
-                                   <p><input type="submit" value="this"></p>
-                                  </form></td>
-                                  <td class="cell100 column6"><a href="{% url 'restaurant_admin:Worker_delete' pk=worker.pk %}">delete</a></td> -->
+        <th>شماره ملی</th>
+        <th>سمت</th>
+        <th>نام</th>
+        <th>نام خانوادگی</th>
 
 
+        <!-- <th class="cell100 column5">شماره تماس</th> -->
+        <!-- <th class="cell100 column5">تغییرات</th>
+        <th class="cell100 column6">حذف</th> -->
+    </tr>
+    </thead>
 
-                {% empty %}
-                    <li>No Worker yet.</li>
-</tr>
-</tbody>
-</table>
-
-                {% endfor %}
-
-    {% if chosen_object %}
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <table border="1">
-                <tr>
-                    <th>{{ update_form.name.label_tag }}</th>
-                    <td>{{ update_form.name }} </td>
-                    <td>{{ update_form.name.errors }}</td>
-                </tr>
-                <tr>
-                    <th>{{ update_form.f_name.label_tag }}</th>
-                    <td>{{ update_form.f_name }} </td>
-                    <td>{{ update_form.f_name.errors }}</td>
-                </tr>
-                <tr>
-                    <th>Position</th>
-                    <td>{{ update_form.position.label_tag }}</td>
-                    <td>{{ update_form.position }}</td>
-                </tr>
-                <tr>
-                    <th>{{ update_form.home_addr.label_tag }}</th>
-                    <td>{{ update_form.home_addr }} </td>
-                    <td>{{ update_form.home_addr.errors }}</td>
-                </tr>
-                <tr>
-                    <th>{{ update_form.phone_number.label_tag }}</th>
-                    <td>{{ update_form.phone_number }} </td>
-                    <td>{{ update_form.phone_number.errors }}</td>
-                </tr>
-                <tr>
-                    <th>{{ update_form.national_code.label_tag }}</th>
-                    <td>{{ update_form.national_code }} </td>
-                    <td>{{ update_form.national_code.errors }}</td>
-                </tr>
-                <tr>
-                    <th>{{ update_form.mobile_number.label_tag }}</th>
-                    <td>{{ update_form.mobile_number }} </td>
-                    <td>{{ update_form.mobile_number.errors }}</td>
-                </tr>
-                <tr>
-                    <th>{{ update_form.profile.label_tag }}</th>
-                    <td>{{ update_form.profile }} </td>
-                    <td>{{ update_form.profile.errors }}</td>
-                </tr>
-                <tr>
-                    <th>{{ update_form.published_date.label_tag }}</th>
-                    <td>{{ update_form.published_date }} </td>
-                    <td>{{ update_form.published_date.errors }}</td>
-                    <td>{{ update_form.published_date.value }}</td>
-                </tr>
-            </table>
-
-            <input type='hidden' name='pk' value="{{ chosen_object.pk }}">
-            <input type="submit" name="edit" value="Update">
-        </form>
-
-    {% endif %}
+    <tbody>
+    {% for worker in object_list %}
+        <tr>
+            <td>{{ worker.national_code }}</td>
+            <td>{{ worker.position }}</td>
+            <td>{{ worker.f_name }}</td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >{{ worker.name }}</button></td>
 
 
-    <ul><a href="{% url 'restaurant_admin:Worker_create' %}">worker create</a></ul>
-    <ul><a href="{% url 'restaurant_admin:admin_home' %}">Home</a></ul>
-    <script src="{% static 'Restaurant_admin/assets/js/jquery-3.4.0.slim.min.js' %}"></script>
-    <script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.min.js' %}"></script>
-    <!-- <script>
-        $('.js-pscroll').each(function () {
-            var ps = new PerfectScrollbar(this);
+{#            <!-- <td class="cell100 column5">{{ worker.phone_number }}</td> -->#}
+{#            <!-- <td class="cell100 column5"><form method="post">#}
+{#                                  {% csrf_token %}#}
+{#                                  <input type="hidden" name="worker_id" value="{{ worker.pk }}">#}
+{#                                   <p><input type="submit" value="this"></p>#}
+{#                                  </form></td>#}
+{#                                  <td class="cell100 column6"><a href="{% url 'restaurant_admin:Worker_delete' pk=worker.pk %}">delete</a></td> -->#}
 
-            $(window).on('resize', function () {
-                ps.update();
-            })
-        });
+        </tr>
+            {% empty %}
+            <li>No Worker yet.</li>
+
+    {% endfor %}
+    </tbody>
+        </table>
+  button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+<a href="{% url 'restaurant_admin:Worker_create' %}">worker create</a>
+<a href="{% url 'restaurant_admin:admin_home' %}">Home</a>
+{% if chosen_object %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table border="1">
+            <tr>
+                <th>{{ update_form.name.label_tag }}</th>
+                <td>{{ update_form.name }} </td>
+                <td>{{ update_form.name.errors }}</td>
+            </tr>
+            <tr>
+                <th>{{ update_form.f_name.label_tag }}</th>
+                <td>{{ update_form.f_name }} </td>
+                <td>{{ update_form.f_name.errors }}</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>{{ update_form.position.label_tag }}</td>
+                <td>{{ update_form.position }}</td>
+            </tr>
+            <tr>
+                <th>{{ update_form.home_addr.label_tag }}</th>
+                <td>{{ update_form.home_addr }} </td>
+                <td>{{ update_form.home_addr.errors }}</td>
+            </tr>
+            <tr>
+                <th>{{ update_form.phone_number.label_tag }}</th>
+                <td>{{ update_form.phone_number }} </td>
+                <td>{{ update_form.phone_number.errors }}</td>
+            </tr>
+            <tr>
+                <th>{{ update_form.national_code.label_tag }}</th>
+                <td>{{ update_form.national_code }} </td>
+                <td>{{ update_form.national_code.errors }}</td>
+            </tr>
+            <tr>
+                <th>{{ update_form.mobile_number.label_tag }}</th>
+                <td>{{ update_form.mobile_number }} </td>
+                <td>{{ update_form.mobile_number.errors }}</td>
+            </tr>
+            <tr>
+                <th>{{ update_form.profile.label_tag }}</th>
+                <td>{{ update_form.profile }} </td>
+                <td>{{ update_form.profile.errors }}</td>
+            </tr>
+            <tr>
+                <th>{{ update_form.published_date.label_tag }}</th>
+                <td>{{ update_form.published_date }} </td>
+                <td>{{ update_form.published_date.errors }}</td>
+                <td>{{ update_form.published_date.value }}</td>
+            </tr>
+        </table>
+
+        <input type='hidden' name='pk' value="{{ chosen_object.pk }}">
+        <input type="submit" name="edit" value="Update">
+    </form>
+
+{% endif %}
 
 
-    </script> -->
+</main>
+<script src="{% static 'Restaurant_admin/assets/js/jquery-3.4.0.slim.min.js' %}"></script>
+<script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- <script>
+    $('.js-pscroll').each(function () {
+        var ps = new PerfectScrollbar(this);
+
+        $(window).on('resize', function () {
+            ps.update();
+        })
+    });
+
+
+</script> -->
