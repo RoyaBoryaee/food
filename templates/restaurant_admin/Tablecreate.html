@@ -1,0 +1,7 @@
+
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <p>table number:{{ form.table_number }} {{form.table_number.errors}}</p>
+    <p>table availablitiy:{{ form.table_availability }}{{form.table_availability.errors}} </p>
+    <p>reservation state:{{ form.reservation_state }} {{form.reservation_state.errors}}</p>
+    <input type="submit" value="Create">
+</form>

@@ -1,0 +1,18 @@
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>create</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+  <p>food name:{{form.food_name}} {{form.food_name.errors}}</p>
+  <p>food details:{{form.food_details }} {{form.food_details.errors}}</p>
+  <p>food availablitiy:{{ form.food_availability }} {{form.food_availability.errors}}</p>
+  <p>cost:{{ form.cost }} {{form.cost.errors}}</p>
+  <p>food cateogry:{{ form.food_category}} {{form.food_category.errors}}</p>
+  <p>image:{{form.food_img}} {{form.food_img.errors}}</p>
+
+    <input type="submit" value="Create">
+</form>
+</body>
+</html>

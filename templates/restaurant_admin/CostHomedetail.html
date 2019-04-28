@@ -1,0 +1,17 @@
+<h1>Costs</h1>
+<ul>
+{% for c in object_list %}
+    <h1>{{c.id}}<h1>
+    <h1>tax:{{c.tax}}<h1>
+    <h1>service charge:{{c.service_charge}}<h1>
+    <h1>packaging cost:{{c.packaging_cost}}<h1>
+      <ul><a href="{% url 'restaurant_admin:Cost_update' pk=c.pk %}">update</a>
+      <a href="{% url 'restaurant_admin:Cost_delete' pk=c.pk %}">delete</a></ul>
+
+{% empty %}
+    <li>No Cost yet.</li>
+{% endfor %}
+</ul>
+
+<p><a href="{% url 'restaurant_admin:Cost_create' %}">cost create</a>  </p>
+<a href="{% url 'restaurant_admin:admin_home' %}">Home</a>

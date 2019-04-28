@@ -1,0 +1,105 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'Restaurant_admin/assets/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'Restaurant_admin/css/list.css' %}">
+<header class="top_header topnav">
+    <div class="nav_items">
+        <a href="{% url 'restaurant_admin:FoodCategoryHome_detail' %}">مدیریت دسته بندی ها</a>
+        <a href="{% url 'restaurant_admin:Food_create' %}">ایجاد غذا</a>
+        <a href="{% url 'restaurant_admin:admin_home' %}">خانه</a>
+    </div>
+</header>
+<body>
+<main class="main_content">
+    <!-- <ul> -->
+    <div class="wrapper">
+        <div class="flex-container">
+            {% for food in object_list %}
+                <div class="flex-item">
+                    <div class="card">
+                        <img src="{{ food.food_img.url }}" class="card-image">
+                        <div class="card-desc">
+                            <p>نام:{{ food.food_name }}</p>
+                            <p>هزینه: {{ food.cost }} تومان</p>
+                            <p>جزئیات :{{ food.food_details }}</p>
+                            {% if food.food_availability %}
+                                <p>وضعیت موجودی:موجود</p>
+                            {% else %}
+                                <p>وضعیت موجودی: ناموجود</p>
+                            {% endif %}
+                            <p>دسته بندی : {{ food.food_category.name }}</p>
+                        </div>
+                        <div class="card-actions">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="food_id" value="{{ food.pk }}">
+                                <p><input type="submit" value="this"></p>
+                            </form>
+                            <button class="button food_remove_btn py-2 px-4" data-food="{{ food.pk }}">حذف</button>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <li>No Food yet.</li>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            <div style="text-align:center;">
+                                حذف
+                            </div>
+                        </h5>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="text-align:center;font-family: shabnam;">
+                    آیا مطمعنید میخواهید این غذا را حذف کنید؟
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                  <a id="food_remove_link"  role="button" href="#">حذف</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="{% static 'Restaurant_admin/js/list.js' %}"></script>
+<script src="{% static 'Restaurant_admin/assets/js/jquery-3.4.0.slim.min.js' %}"></script>
+<script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script>
+    document.querySelectorAll('.food_remove_btn').forEach(btn => {
+        btn.addEventListener('click', event => {
+            $('#exampleModal').modal();
+            const foodRemoveLink = document.getElementById('food_remove_link');
+            const url = "{% url 'restaurant_admin:Food_delete' pk=123 %}".replace('123', event.target.dataset.food);
+            foodRemoveLink.href = url;
+        });
+    });
+</script>
+</body>
+<!-- </ul> -->
+{% if chosen_object %}
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <p>food name:{{ update_form.food_name }} {{ update_form.food_name.errors }}</p>
+        <p>food details:{{ update_form.food_details }} {{ update_form.food_details.errors }}</p>
+        <p>food availablitiy:{{ update_form.food_availability }} {{ update_form.food_availability.errors }}</p>
+        <p>cost:{{ update_form.cost }} {{ update_form.cost.errors }}</p>
+        <p>food cateogry:{{ update_form.food_category }} {{ update_form.food_category.errors }}</p>
+        <p>image:{{ update_form.food_img }} {{ update_form.food_img.errors }}</p>
+        <input type='hidden' name='pk' value="{{ chosen_object.pk }}">
+        <input type="submit" name="edit" value="Update">
+    </form>
+
+{% endif %}
+</main>

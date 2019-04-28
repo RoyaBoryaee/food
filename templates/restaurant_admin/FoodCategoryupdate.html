@@ -1,0 +1,5 @@
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <p>category :{{form.name}} {{form.name.errors}}</p>
+
+    <input type="submit" value="Update">
+</form>

@@ -1,0 +1,24 @@
+<h1>Tables</h1>
+<ul>
+{% for table in object_list %}
+    <li>{{ table.table_number }}</li>
+    <li>{{ table.table_availability  }}</li>
+    <li>{{ table.reservation_state }}</li>
+    {% if not table.table_availability %}
+      {%for orderl in table.OrderList_Table.all%}
+        {%for order in orderl.FoodOrder_list.all%}
+            <li>name:{{order.food.food_name}}</li>
+            <li>number: {{order.number}}</li>
+            <li>details:{{orderl.details}}</li>
+          {%empty%}
+           <li>No order yet</li>
+          {%endfor%}
+      {%empty%}
+        <li>No orderl yet</li>
+      {%endfor%}
+    {% endif %}
+
+{% empty %}
+    <li>No Table yet.</li>
+{% endfor %}
+</ul>

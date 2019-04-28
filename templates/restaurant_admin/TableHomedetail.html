@@ -1,0 +1,16 @@
+<h1>Tables</h1>
+<ul>
+{% for table in object_list %}
+    <li>{{ table.table_number }}</li>
+    <li>table availability:{{ table.table_availability  }}</li>
+    <li>reservation state:{{ table.reservation_state }}</li>
+
+    <ul><a href="{% url 'restaurant_admin:Table_delete' pk=table.pk %}">delete</a></ul>
+
+{% empty %}
+    <li>No Table yet.</li>
+{% endfor %}
+</ul>
+
+<ul><a href="{% url 'restaurant_admin:Table_create' %}">table create</a></ul>
+<p><a href="{% url 'restaurant_admin:admin_home' %}">Home</a></p>

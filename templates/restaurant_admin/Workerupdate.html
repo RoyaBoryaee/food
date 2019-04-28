@@ -1,0 +1,56 @@
+{% if form.errors%}
+  <p>{{form.fields.errors}}</p>
+{%endif%}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <table border="1">
+  <tr>
+  <th>{{form.name.label_tag}}</th>
+  <td>{{form.name}} </td>
+  <td>{{form.name.errors}}</td>
+  </tr>
+  <tr>
+  <th>{{form.f_name.label_tag}}</th>
+  <td>{{form.f_name}} </td>
+  <td>{{form.f_name.errors}}</td>
+  </tr>
+  <tr>
+  <th>Position</th>
+  <td>{{form.position.label_tag}}</td>
+  <td>{{ form.position }}</td>
+  </tr>
+  <tr>
+  <th>{{form.home_addr.label_tag}}</th>
+  <td>{{form.home_addr}} </td>
+  <td>{{form.home_addr.errors}}</td>
+  </tr>
+  <tr>
+  <th>{{form.phone_number.label_tag}}</th>
+  <td>{{form.phone_number}} </td>
+  <td>{{form.phone_number.errors}}</td>
+  </tr>
+  <tr>
+  <th>{{form.national_code.label_tag}}</th>
+  <td>{{form.national_code}} </td>
+  <td>{{form.national_code.errors}}</td>
+  </tr>
+  <tr>
+  <th>{{form.mobile_number.label_tag}}</th>
+  <td>{{form.mobile_number}} </td>
+  <td>{{form.mobile_number.errors}}</td>
+  </tr>
+  <tr>
+  <th>{{form.profile.label_tag}}</th>
+  <td>{{form.profile}} </td>
+  <td>{{form.profile.errors}}</td>
+  </tr>
+  <tr>
+  <th>{{form.published_date.label_tag}}</th>
+  <td>{{form.published_date}} </td>
+  <td>{{form.published_date.errors}}</td>
+  <td>{{form.published_date.value}}</td>
+  </tr>
+</table>
+  <input type="submit" value="Update">
+</form>

@@ -1,0 +1,16 @@
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>create</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <p>tax :{{form.tax}} {{form.tax.errors}}</p>
+  <p>service charge:{{form.service_charge}} {{form.service_charge.errors}}</p>
+  <p>packaging_cost:{{form.packaging_cost}} {{form.packaging_cost.errors}}</p>
+
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>
