@@ -2,29 +2,47 @@
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
-
-
 @font-face {
-  font-family: Lato-Regular;
-  src: url('../fonts/Lato/Lato-Regular.ttf'); 
+font-family: Shabnam;
+src: url('../fonts/shabnam-font-v4.0.0/Shabnam-FD.eot');
+src: url('../fonts/shabnam-font-v4.0.0/Shabnam-FD.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/shabnam-font-v4.0.0/Farsi-Digits/Shabnam-FD.woff') format('woff'),
+     url('../fonts/shabnam-font-v4.0.0/Farsi-Digits/Shabnam-FD.ttf') format('truetype');
+font-weight: normal;
 }
 
 @font-face {
-  font-family: Lato-Bold;
-  src: url('../fonts/Lato/Lato-Bold.ttf'); 
+font-family: Shabnam;
+src: url('../fonts/shabnam-font-v4.0.0/Shabnam-Bold-FD.eot');
+src: url('../fonts/shabnam-font-v4.0.0/Shabnam-Bold-FD?#iefix') format('embedded-opentype'),
+     url('../fonts/shabnam-font-v4.0.0/Farsi-Digits/Shabnam-Bold-FD.woff') format('woff'),
+     url('../fonts/shabnam-font-v4.0.0/Shabnam-Bold-FD.ttf') format('truetype');
+font-weight: bold;
 }
+
+@font-face {
+font-family: Shabnam;
+src: url('../fonts/shabnam-font-v4.0.0/Shabnam-Light-FD.eot');
+src: url('../fonts/shabnam-font-v4.0.0/Shabnam-Light-FD.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/shabnam-font-v4.0.0/Farsi-Digits/Shabnam-Light-FD.woff') format('woff'),
+     url('../fonts/shabnam-font-v4.0.0/Shabnam-Light-FD.ttf') format('truetype');
+font-weight: 300;
+}
+
+
+
 
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 * {
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0px;
+	padding: 0px;
 	box-sizing: border-box;
 }
 
 body, html {
 	height: 100%;
-	font-family: sans-serif;
+	font-family: shabnam;
 }
 
 /* ------------------------------------ */
@@ -230,7 +248,7 @@ th, td {
 [ Ver1 ]*/
 
 .table100.ver1 th {
-  font-family: Lato-Bold;
+  font-family: shabnam;
   font-size: 18px;
   color: #fff;
   line-height: 1.4;
@@ -239,7 +257,7 @@ th, td {
 }
 
 .table100.ver1 td {
-  font-family: Lato-Regular;
+  font-family: shabnam;
   font-size: 15px;
   color: #808080;
   line-height: 1.4;
@@ -286,7 +304,7 @@ th, td {
 }
 
 .table100.ver2 th {
-  font-family: Lato-Bold;
+  font-family: shabnam;
   font-size: 18px;
   color: #fa4251;
   line-height: 1.4;
@@ -295,7 +313,7 @@ th, td {
 }
 
 .table100.ver2 td {
-  font-family: Lato-Regular;
+  font-family: shabnam;
   font-size: 15px;
   color: #808080;
   line-height: 1.4;
@@ -337,7 +355,7 @@ th, td {
 }
 
 .table100.ver3 th {
-  font-family: Lato-Bold;
+  font-family: shabnam;
   font-size: 15px;
   color: #00ad5f;
   line-height: 1.4;
@@ -346,7 +364,7 @@ th, td {
 }
 
 .table100.ver3 td {
-  font-family: Lato-Regular;
+  font-family: shabnam;
   font-size: 15px;
   color: #808080;
   line-height: 1.4;
@@ -390,7 +408,7 @@ th, td {
 }
 
 .table100.ver4 th {
-  font-family: Lato-Bold;
+  font-family: shabnam;
   font-size: 18px;
   color: #4272d7;
   line-height: 1.4;
@@ -404,7 +422,7 @@ th, td {
 }
 
 .table100.ver4 td {
-  font-family: Lato-Regular;
+  font-family: shabnam;
   font-size: 15px;
   color: #808080;
   line-height: 1.4;
@@ -448,7 +466,7 @@ th, td {
 }
 
 .table100.ver5 th {
-  font-family: Lato-Bold;
+  font-family: shabnam;
   font-size: 14px;
   color: #555555;
   line-height: 1.4;
@@ -458,7 +476,7 @@ th, td {
 }
 
 .table100.ver5 td {
-  font-family: Lato-Regular;
+  font-family: shabnam;
   font-size: 15px;
   color: #808080;
   line-height: 1.4;
@@ -467,14 +485,14 @@ th, td {
 }
 
 .table100.ver5 .table100-body tr {
-  overflow: hidden; 
+  overflow: hidden;
   border-bottom: 10px solid #fff;
   border-radius: 10px;
 }
 
-.table100.ver5 .table100-body table { 
-  border-collapse: separate; 
-  border-spacing: 0 10px; 
+.table100.ver5 .table100-body table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
 }
 .table100.ver5 .table100-body td {
     border: solid 1px transparent;
@@ -484,13 +502,13 @@ th, td {
 }
 .table100.ver5 .table100-body td:first-child {
     border-left-style: solid;
-    border-top-left-radius: 10px; 
+    border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
 .table100.ver5 .table100-body td:last-child {
     border-right-style: solid;
-    border-bottom-right-radius: 10px; 
-    border-top-right-radius: 10px; 
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .table100.ver5 tr:hover td {
