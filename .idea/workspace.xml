@@ -2,67 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8654d74-cc8d-4439-9e65-7b3afcc168ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/Restaurant_admin/css/food.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/Restaurant_admin/js/food.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/1" beforeDir="false" afterPath="$PROJECT_DIR$/media/1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/10_Pycr8zU" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/1_BsyxGYw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/7" beforeDir="false" afterPath="$PROJECT_DIR$/media/7" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/7_R8ZHumt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/7_Xkx6U2i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/7_v7c762S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None" beforeDir="false" afterPath="$PROJECT_DIR$/media/None" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_0aCRNyb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_9EVMCiU" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_B3ZeZ4K" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_CaTT9rl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_D8rtbSu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_Ddhhpzi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_Gmgod9s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_HDsezAL" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_HRSlEaA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_IeotYwe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_Ircdxvk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_NR0NLjg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_Na2WB9P" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_QIWoJw8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_SrhfXsb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_UITZLO1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_UyJmScJ" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_WVJOUnM" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_bg8hS4p" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_c8V4mFn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_fArqvoO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_hhz5WhS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_ifbMym5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_jVUCIl8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_kcloqdg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_nATIRAI" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_nzQXTRj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_ok9kVP3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_q6fmz3n" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_qbEjLeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_rVKkG1Y" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_tdLzGNo" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_w3rTCse" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_yzFj4Ox" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/None_zY0Iwby" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_admin/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_admin/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_admin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_admin/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_admin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_admin/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restaurant_admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_admin/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Restaurant_admin/css/Wtable.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/Restaurant_admin/css/Wtable.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/Restaurant_admin/css/list.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/Restaurant_admin/css/list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/CostHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/CostHomedetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/FoodCategoryHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/FoodCategoryHomedetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/TableHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/TableHomedetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/WorkerHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/WorkerHomedetail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -175,6 +115,7 @@
           <entry key="css" value="296" />
           <entry key="html" value="1156" />
           <entry key="js" value="3" />
+          <entry key="txt" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -182,6 +123,7 @@
           <entry key="CSS" value="296" />
           <entry key="HTML" value="1156" />
           <entry key="JavaScript" value="3" />
+          <entry key="PLAIN_TEXT" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -228,8 +170,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/FoodCategoryHomedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+            <state relative-caret-position="379">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
               <folding>
                 <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#main#0;n#!!top" expanded="true" />
@@ -597,6 +539,14 @@
       <option name="presentableId" value="Default" />
       <updated>1556383854692</updated>
     </task>
+    <task id="LOCAL-00001" summary="new one">
+      <created>1558104122000</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1558104122008</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -631,6 +581,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new one" />
+    <option name="LAST_COMMIT_MESSAGE" value="new one" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/static/CSS/styles.css">
@@ -738,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/FoodCategoryHomedetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        <state relative-caret-position="379">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
           <folding>
             <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#main#0;n#!!top" expanded="true" />
