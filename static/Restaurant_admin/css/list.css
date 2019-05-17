@@ -190,12 +190,12 @@ padding: 0%;
   flex-flow: row wrap;
   justify-content:space-between;
   border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    min-height: 30%;
-  max-height: 30%;
+    min-height: 45%;
+  max-height: 45%;
   overflow: hidden;
   align-items: baseline;
   direction: rtl;
-  padding-bottom: 2vw;
+  /*padding-bottom: vw;*/
   font-size: 1vw;
 }
 
