@@ -15,7 +15,6 @@ from django.utils.decorators import method_decorator
 from django.views import View
 
 
-
 # Create your views here.
 @login_required
 def change_password(request):
@@ -45,17 +44,82 @@ def index(request):
 def Home(request):
     return render(request,'restaurant_admin/home.html')
 
-@method_decorator(login_required, name='dispatch')
-class FoodCategoryCreateView(CreateView):
-    template_name = 'restaurant_admin/FoodCategorycreate.html'
-    model = models.FoodCategory
-    fields = '__all__'
 
-@method_decorator(login_required, name='dispatch')
-class FoodCategoryUpdateView(UpdateView):
-    template_name = 'restaurant_admin/FoodCategoryupdate.html'
-    model = models.FoodCategory
-    fields = '__all__'
+class SpecialView(View):
+
+    def get(self,*args,**kwargs):
+
+        self.queryset=self.model.objects.all()
+        return render(self.request, self.template_name,context={'object_list':self.queryset,
+                                                             'chosen_object': self.chosen_object,
+                                                             'update_form': self.update_form,
+                                                             'create_form':self.create_form,
+                                                             'create_bool':self.create_bool})
+    def post(self,*args,**kwargs):
+        postvalues = self.request.POST
+        print('post values {}'.format(postvalues))
+        if postvalues.get('id', None):
+            print('id')
+            id = self.request.POST.get('id')
+            self.chosen_object= self.model.objects.get(pk=id)
+
+        if self.chosen_object != None:
+            print('this')
+            self.queryset=self.model.objects.all()
+            self.update_form=self.form(instance=self.chosen_object)
+            return render(self.request,self.template_name,context={'object_list':self.queryset,
+                                                                    'chosen_object': self.chosen_object,
+                                                                    'update_form': self.update_form})
+
+        if postvalues.get('edit',None):
+            print('yes')
+            self.chosen_object=self.model.objects.get(pk=postvalues['pk'])
+            self.update_form=self.form(self.request.POST,  self.request.FILES,instance=self.chosen_object)
+            print(self.update_form)
+            if self.update_form.is_valid():
+                print('this')
+                cost=self.update_form.save()
+                cost.save()
+                self.queryset= self.model.objects.all()
+                #self.chosen_object=self.model.objects.get(pk=cost.pk)
+                #self.update_form=self.form(instance=self.chosen_object)
+                return render(self.request,self.template_name,context={'object_list':self.queryset,
+                                                                       #'chosen_object': self.chosen_object,
+                                                                       #'update_form': self.update_form
+                                                                       })
+            else:
+                self.queryset= self.model.objects.all()
+                return render(self.request,self.template_name,context={'object_list':self.queryset,
+                                                                        'update_form':self.update_form,
+                                                                        'chosen_object':self.chosen_object})
+
+        if postvalues.get('create', None):
+            self.create_bool=True
+            self.create_form=self.form()
+            self.queryset= self.model.objects.all()
+            return render(self.request,self.template_name,context={'object_list':self.queryset,
+                                                                    'create_form':self.create_form,
+                                                                    'create_bool':self.create_bool})
+
+        if postvalues.get('create_1',None):
+            self.create_form=self.form(self.request.POST, self.request.FILES)
+            print(self.create_form.errors)
+            print('((((((()))))))')
+            print(self.create_form)
+            if self.create_form.is_valid():
+                print('yes this is valid')
+                cost= self.create_form.save()
+                cost.save()
+                self.queryset= self.model.objects.all()
+                return render(self.request,self.template_name,context={'object_list':self.queryset})
+            else:
+                self.create_bool=True
+                self.queryset= self.model.objects.all()
+
+                return render(self.request,self.template_name,context={'object_list':self.queryset,'create_form':self.create_form,
+                                                                        'create_bool':self.create_bool})
+
+
 
 @method_decorator(login_required, name='dispatch')
 class FoodCategoryDetailView(DetailView):
@@ -63,55 +127,16 @@ class FoodCategoryDetailView(DetailView):
     model = models.FoodCategory
     fields = '__all__'
 
-'''
 @method_decorator(login_required, name='dispatch')
-class FoodCategoryHomeDetailView(FormView, ListView):
+class FoodCategoryHomeDetailView(SpecialView):
     template_name = 'restaurant_admin/FoodCategoryHomedetail.html'
-    form_class = forms.InputForm
-    model = models.FoodCategory
-    fields='__all__
-'''
-@method_decorator(login_required, name='dispatch')
-class FoodCategoryHomeDetailView(View):
-    template_name = 'restaurant_admin/FoodCategoryHomedetail.html'
-    #form_class = forms.InputForm
+    form=forms.FoodCategoryForm
     model = models.FoodCategory
     fields='__all__'
+    create_form= None
+    update_form= None
     chosen_object=None
-    update_form=None
-    queryset= models.FoodCategory.objects.all()
-
-    def get(self,*args,**kwargs):
-        self.queryset=self.model.objects.all()
-        return render(self.request, 'restaurant_admin/FoodCategoryHomedetail.html',context={'object_list':self.queryset,
-                                                                                      'chosen_object': self.chosen_object,
-                                                                                      'update_form': self.update_form})
-    def post(self,*args,**kwargs):
-        postvalues = self.request.POST
-        print(postvalues)
-        if postvalues.get('foodcategory_id', None):
-            id = self.request.POST.get('foodcategory_id')
-            self.chosen_object= self.model.objects.get(pk=id)
-            #print(self.chosen_object.name)
-
-        if self.chosen_object != None:
-            self.update_form=forms.FoodCategoryForm(instance=self.chosen_object)
-
-        if postvalues.get('edit',None):
-            self.chosen_object=self.model.objects.get(pk=postvalues['pk'])
-            self.update_form=forms.FoodCategoryForm(self.request.POST,instance=self.chosen_object)
-            if self.update_form.is_valid():
-                foodcategory=self.update_form.save()
-                print('yesk')
-                foodcategory.save()
-                self.queryset= models.FoodCategory.objects.all()
-                self.chosen_object=self.model.objects.get(pk=foodcategory.pk)
-                self.update_form=forms.FoodCategoryForm(instance=self.chosen_object)
-
-        return render(self.request,'restaurant_admin/FoodCategoryHomedetail.html',context={'object_list':self.queryset,
-                                                                                      'chosen_object': self.chosen_object,
-                                                                                      'update_form': self.update_form})
-
+    create_bool = False
 
 
 @method_decorator(login_required, name='dispatch')
@@ -126,94 +151,24 @@ class FoodCategoryDeleteView(DeleteView):
     def get_success_url(self):
         return reverse('restaurant_admin:FoodCategoryHome_detail')
 
-@method_decorator(login_required, name='dispatch')
-class FoodCategoryListView(ListView):
-    template_name = 'restaurant_admin/FoodCategorylist.html'
-    model = models.FoodCategory
-    fields = '__all__'
-
-@method_decorator(login_required, name='dispatch')
-class FoodCreateView(CreateView):
-
-    model = models.Food
-    fields = '__all__'
-    template_name = 'restaurant_admin/Foodcreate.html'
-
-    def form_valid(self, form):
-        food_category = form.cleaned_data['food_category']
-        food = form.save(commit=False)
-        food.food_category= food_category
-        food.save()
-        return super(FoodCreateView, self).form_valid(form)
-
-@method_decorator(login_required, name='dispatch')
-class FoodUpdateView(UpdateView):
-
-    model = models.Food
-    fields = '__all__'
-    template_name = 'restaurant_admin/Foodupdate.html'
-
-    def form_valid(self, form):
-        food_category = form.cleaned_data['food_category']
-        food = form.save(commit=False)
-        food.food_category= food_category
-        food.save()
-        return super(FoodUpdateView, self).form_valid(form)
 
 @method_decorator(login_required, name='dispatch')
 class FoodDetailView(DetailView):
     template_name = 'restaurant_admin/Fooddetail.html'
     model = models.Food
     fields = '__all__'
-'''
-@method_decorator(login_required, name='dispatch')
-class FoodHomeDetailView(FormView, ListView):
-    template_name = 'restaurant_admin/FoodHomedetail.html'
-    form_class = forms.InputForm
-    model = models.Food
-    fields='__all__'
-'''
-
 
 @method_decorator(login_required, name='dispatch')
-class FoodHomeDetailView(View):
+class FoodHomeDetailView(SpecialView):
     template_name = 'restaurant_admin/FoodHomedetail.html'
-    #form_class = forms.InputForm
+    form=forms.FoodForm
     model = models.Food
     fields='__all__'
     chosen_object=None
     update_form=None
-    queryset= models.Food.objects.all()
+    create_bool=False
+    create_form=None
 
-    def get(self,*args,**kwargs):
-        self.queryset=self.model.objects.all()
-        return render(self.request, 'restaurant_admin/FoodHomedetail.html',context={'object_list':self.queryset,
-                                                                                      'chosen_object': self.chosen_object,
-                                                                                      'update_form': self.update_form})
-    def post(self,*args,**kwargs):
-        postvalues = self.request.POST
-
-        if postvalues.get('food_id', None):
-            id = self.request.POST.get('food_id')
-            self.chosen_object= self.model.objects.get(pk=id)
-            #print(self.chosen_object.name)
-
-        if self.chosen_object != None:
-            self.update_form=forms.FoodForm(instance=self.chosen_object)
-
-        if postvalues.get('edit',None):
-            self.chosen_object=self.model.objects.get(pk=postvalues['pk'])
-            self.update_form=forms.FoodForm(self.request.POST,instance=self.chosen_object)
-            if self.update_form.is_valid():
-                food=self.update_form.save()
-                food.save()
-                self.queryset= models.Food.objects.all()
-                self.chosen_object=self.model.objects.get(pk=food.pk)
-                self.update_form=forms.FoodForm(instance=self.chosen_object)
-
-        return render(self.request,'restaurant_admin/FoodHomedetail.html',context={'object_list':self.queryset,
-                                                                                      'chosen_object': self.chosen_object,
-                                                                                      'update_form': self.update_form})
 
 @method_decorator(login_required, name='dispatch')
 class FoodDeleteView(DeleteView):
@@ -227,25 +182,6 @@ class FoodDeleteView(DeleteView):
     def get_success_url(self):
         return reverse('restaurant_admin:FoodHome_detail')
 
-@method_decorator(login_required, name='dispatch')
-class FoodListView(ListView):
-    template_name = 'restaurant_admin/Foodlist.html'
-    model = models.Food
-    fields = '__all__'
-
-
-@method_decorator(login_required, name='dispatch')
-class WorkerCreateView(CreateView):
-    template_name = 'restaurant_admin/Workercreate.html'
-    model = models.Worker
-    fields = '__all__'
-
-@method_decorator(login_required, name='dispatch')
-class WorkerUpdateView(UpdateView):
-    template_name = 'restaurant_admin/Workerupdate.html'
-    model = models.Worker
-    fields = '__all__'
-
 
 @method_decorator(login_required, name='dispatch')
 class WorkerDetailView(DetailView):
@@ -254,44 +190,16 @@ class WorkerDetailView(DetailView):
     fields = '__all__'
 
 @method_decorator(login_required, name='dispatch')
-class WorkerHomeDetailView(View):
+class WorkerHomeDetailView(SpecialView):
     template_name = 'restaurant_admin/WorkerHomedetail.html'
-    #form_class = forms.InputForm
+    form=forms.WorkerForm
     model = models.Worker
     fields='__all__'
     chosen_object=None
     update_form=None
-    queryset= models.Worker.objects.all()
+    create_bool=False
+    create_form=None
 
-    def get(self,*args,**kwargs):
-        self.queryset=self.model.objects.all()
-        return render(self.request, 'restaurant_admin/WorkerHomedetail.html',context={'object_list':self.queryset,
-                                                                                      'chosen_object': self.chosen_object,
-                                                                                      'update_form': self.update_form})
-    def post(self,*args,**kwargs):
-        postvalues = self.request.POST
-
-        if postvalues.get('worker_id', None):
-            id = self.request.POST.get('worker_id')
-            self.chosen_object= self.model.objects.get(pk=id)
-            #print(self.chosen_object.name)
-
-        if self.chosen_object != None:
-            self.update_form=forms.WorkerForm(instance=self.chosen_object)
-
-        if postvalues.get('edit',None):
-            self.chosen_object=self.model.objects.get(pk=postvalues['pk'])
-            self.update_form=forms.WorkerForm(self.request.POST,instance=self.chosen_object)
-            if self.update_form.is_valid():
-                worker=self.update_form.save()
-                worker.save()
-                self.queryset= models.Worker.objects.all()
-                self.chosen_object=self.model.objects.get(pk=worker.pk)
-                self.update_form=forms.WorkerForm(instance=self.chosen_object)
-
-        return render(self.request,'restaurant_admin/WorkerHomedetail.html',context={'object_list':self.queryset,
-                                                                                      'chosen_object': self.chosen_object,
-                                                                                      'update_form': self.update_form})
 
 @method_decorator(login_required, name='dispatch')
 class WorkerDeleteView(DeleteView):
@@ -305,17 +213,6 @@ class WorkerDeleteView(DeleteView):
     def get_success_url(self):
         return reverse('restaurant_admin:WorkerHome_detail')
 
-@method_decorator(login_required, name='dispatch')
-class WorkerListView(ListView):
-    template_name = 'restaurant_admin/Workerlist.html'
-    model = models.Worker
-    fields = '__all__'
-
-@method_decorator(login_required, name='dispatch')
-class TableCreateView(CreateView):
-    template_name = 'restaurant_admin/Tablecreate.html'
-    model = models.Table
-    fields = '__all__'
 
 @method_decorator(login_required, name='dispatch')
 class TableDetailView(DetailView):
@@ -324,11 +221,15 @@ class TableDetailView(DetailView):
     fields = '__all__'
 
 @method_decorator(login_required, name='dispatch')
-class TableHomeDetailView(FormView, ListView):
+class TableHomeDetailView(SpecialView):
     template_name = 'restaurant_admin/TableHomedetail.html'
-    form_class = forms.InputForm
+    form= forms.TableForm
     model = models.Table
     fields='__all__'
+    create_form=None
+    create_bool = False
+    update_form=None
+    chosen_object=None
 
 @method_decorator(login_required, name='dispatch')
 class TableDeleteView(DeleteView):
@@ -344,34 +245,20 @@ class TableDeleteView(DeleteView):
 
 
 @method_decorator(login_required, name='dispatch')
-class TableListView(ListView):
-    template_name = 'restaurant_admin/Tablelist.html'
-    model = models.Table
-    fields = '__all__'
-
-@method_decorator(login_required, name='dispatch')
-class CostCreateView(CreateView):
-    template_name = 'restaurant_admin/Costcreate.html'
-    model = models.Cost
-    fields = '__all__'
-
-@method_decorator(login_required, name='dispatch')
-class CostUpdateView(UpdateView):
-    template_name = 'restaurant_admin/Costupdate.html'
-    model = models.Cost
-    fields = '__all__'
-
-@method_decorator(login_required, name='dispatch')
 class CostDetailView(DetailView):
     template_name = 'restaurant_admin/Costdetail.html'
     model = models.Cost
     fields = '__all__'
 
-
 @method_decorator(login_required, name='dispatch')
-class CostHomeDetailView(FormView, ListView):
+
+class CostHomeDetailView(SpecialView):
     template_name = 'restaurant_admin/CostHomedetail.html'
-    form_class = forms.InputForm
+    form= forms.CostForm
+    create_form= None
+    update_form= None
+    chosen_object=None
+    create_bool = False
     model = models.Cost
     fields='__all__'
 
@@ -381,11 +268,8 @@ class CostDeleteView(DeleteView):
     model = models.Cost
     fields = '__all__'
 
+    def get(self, *args, **kwargs):
+        return self.post(*args, **kwargs)
+
     def get_success_url(self):
         return reverse('restaurant_admin:CostHome_detail')
-
-@method_decorator(login_required, name='dispatch')
-class CostListView(ListView):
-    template_name = 'restaurant_admin/Costlist.html'
-    model = models.Cost
-    fields = '__all__'

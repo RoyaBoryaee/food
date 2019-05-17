@@ -2,9 +2,66 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8654d74-cc8d-4439-9e65-7b3afcc168ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/Restaurant_admin/css/Wtable.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/Restaurant_admin/css/food.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/Restaurant_admin/js/food.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/1" beforeDir="false" afterPath="$PROJECT_DIR$/media/1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/10" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/10_Pycr8zU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/1_BsyxGYw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/7" beforeDir="false" afterPath="$PROJECT_DIR$/media/7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/7_R8ZHumt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/7_Xkx6U2i" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/7_v7c762S" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None" beforeDir="false" afterPath="$PROJECT_DIR$/media/None" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_0aCRNyb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_9EVMCiU" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_B3ZeZ4K" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_CaTT9rl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_D8rtbSu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_Ddhhpzi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_Gmgod9s" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_HDsezAL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_HRSlEaA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_IeotYwe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_Ircdxvk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_NR0NLjg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_Na2WB9P" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_QIWoJw8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_SrhfXsb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_UITZLO1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_UyJmScJ" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_WVJOUnM" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_bg8hS4p" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_c8V4mFn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_fArqvoO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_hhz5WhS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_ifbMym5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_jVUCIl8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_kcloqdg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_nATIRAI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_nzQXTRj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_ok9kVP3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_q6fmz3n" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_qbEjLeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_rVKkG1Y" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_tdLzGNo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_w3rTCse" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_yzFj4Ox" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/None_zY0Iwby" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_admin/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_admin/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_admin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_admin/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_admin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_admin/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restaurant_admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/restaurant_admin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Restaurant_admin/css/Wtable.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/Restaurant_admin/css/Wtable.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/Restaurant_admin/css/list.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/Restaurant_admin/css/list.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/CostHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/CostHomedetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/FoodCategoryHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/FoodCategoryHomedetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/TableHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/TableHomedetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/restaurant_admin/WorkerHomedetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/restaurant_admin/WorkerHomedetail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,6 +69,20 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -84,41 +155,125 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="63070695">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="6" />
+          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.50" value="1" />
+          <entry key="project.open.time.53" value="1" />
+          <entry key="project.open.time.54" value="1" />
+          <entry key="project.open.time.66" value="1" />
+          <entry key="project.open.time.70" value="1" />
+          <entry key="project.open.time.73" value="1" />
+          <entry key="project.opened" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="css" value="296" />
+          <entry key="html" value="1156" />
+          <entry key="js" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="296" />
+          <entry key="HTML" value="1156" />
+          <entry key="JavaScript" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="3" />
+          <entry key="html" value="7" />
+          <entry key="js" value="5" />
+          <entry key="py" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="3" />
+          <entry key="HTML" value="7" />
+          <entry key="JavaScript" value="5" />
+          <entry key="Python" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="54" column="35" lean-forward="true" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+            <state relative-caret-position="157">
+              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/list.css">
+        <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/WorkerHomedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="974">
-              <caret line="80" column="15" lean-forward="true" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
+            <state relative-caret-position="244">
+              <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" selection-end-column="68" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#span#0;n#h2#0;n#article#0;n#div#0;n#div#0;n#div#1;n#main#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/WorkerHomedetail.html">
+        <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/FoodCategoryHomedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-755">
-              <caret line="81" column="10" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
+            <state relative-caret-position="404">
+              <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+              <folding>
+                <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#main#0;n#!!top" expanded="true" />
+                <element signature="n#if#0;n#!!top" />
+                <element signature="n#form#2;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/Wtable.css">
+        <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/js/food.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+            <state relative-caret-position="275">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/food.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/materialize/js/materialize.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/js/Wtable.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -126,8 +281,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/js/list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+            <state>
+              <caret selection-end-line="11" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/test.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="482">
+              <caret line="279" column="16" selection-start-line="279" selection-start-column="13" selection-end-line="279" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/list.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="197" column="19" selection-start-line="197" selection-start-column="19" selection-end-line="197" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -141,6 +314,29 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>formSubmit1</find>
+      <find>red</find>
+      <find>row active-with-click</find>
+      <find>Red</find>
+      <find>image</find>
+      <find>tea</find>
+      <find>img</find>
+      <find>img-</find>
+      <find>img-responsive</find>
+      <find>col</find>
+      <find>html</find>
+      <find>flex-container</find>
+      <find>flex</find>
+      <find>mc</find>
+      <find>mc-description</find>
+      <find>med</find>
+      <find>.fa-</find>
+      <find>.fa</find>
+      <find>mc-btn-action</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -148,10 +344,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html" />
-        <option value="$PROJECT_DIR$/static/Restaurant_admin/css/list.css" />
+        <option value="$PROJECT_DIR$/static/Restaurant_admin/css/test.css" />
+        <option value="$PROJECT_DIR$/templates/restaurant_admin/test.html" />
         <option value="$PROJECT_DIR$/static/Restaurant_admin/css/Wtable.css" />
         <option value="$PROJECT_DIR$/templates/restaurant_admin/WorkerHomedetail.html" />
+        <option value="$PROJECT_DIR$/templates/restaurant_admin/CostHomedetail.html" />
+        <option value="$PROJECT_DIR$/static/Restaurant_admin/css/food.css" />
+        <option value="$PROJECT_DIR$/static/Restaurant_admin/js/Wtable.js" />
+        <option value="$PROJECT_DIR$/static/Restaurant_admin/js/food.js" />
+        <option value="$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html" />
+        <option value="$PROJECT_DIR$/static/Restaurant_admin/css/list.css" />
+        <option value="$PROJECT_DIR$/templates/restaurant_admin/FoodCategoryHomedetail.html" />
       </list>
     </option>
   </component>
@@ -172,13 +375,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="FoodService-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="FoodService-master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodService-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodService-master" type="462c0819:PsiDirectoryNode" />
+              <item name="restaurant_admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FoodService-master" type="b2602c69:ProjectViewProjectNode" />
@@ -230,6 +437,29 @@
               <item name="FoodService-master" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="Restaurant_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodService-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodService-master" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="materialize" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodService-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodService-master" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="materialize" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FoodService-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FoodService-master" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="Restaurant_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="materialize" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -308,6 +538,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -316,7 +547,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -370,8 +601,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26172465" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22844176" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -391,7 +623,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32980332" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,53 +632,120 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html</url>
-          <line>87</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/js/list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="38" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/CSS/styles.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/list.css">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DRa0.088/food/shivafinal/shivafinal/FoodService-master/templates/restaurant_admin/WorkerHomedetail.html" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Rar$DRa0.520/shivafinal/shivafinal/FoodService-master/templates/restaurant_admin/WorkerHomedetail.html" />
+    <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="974">
-          <caret line="80" column="15" lean-forward="true" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
+        <state relative-caret-position="1000">
+          <caret line="40" column="14" selection-start-line="10" selection-start-column="15" selection-end-line="40" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/Wtable.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="113" column="25" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="25" />
+        <state relative-caret-position="4800">
+          <caret line="192" column="19" selection-start-line="192" selection-start-column="19" selection-end-line="192" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html">
+    <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/CostHomedetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="35" lean-forward="true" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
+        <state relative-caret-position="150">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restaurant_admin/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/test.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="279" column="16" selection-start-line="279" selection-start-column="13" selection-end-line="279" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/js/Wtable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/materialize/js/materialize.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/food.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="41" column="1" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/js/list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/js/food.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/WorkerHomedetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-755">
-          <caret line="81" column="10" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="10" />
+        <state relative-caret-position="244">
+          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" selection-end-column="68" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#span#0;n#h2#0;n#article#0;n#div#0;n#div#0;n#div#1;n#main#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/FoodHomedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Restaurant_admin/css/list.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="197" column="19" selection-start-line="197" selection-start-column="19" selection-end-line="197" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/restaurant_admin/FoodCategoryHomedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#if#0;n#!!top" />
+            <element signature="n#form#2;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>

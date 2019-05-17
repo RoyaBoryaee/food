@@ -4,7 +4,6 @@
 <header class="top_header topnav">
     <div class="nav_items">
         <a href="{% url 'restaurant_admin:FoodCategoryHome_detail' %}">مدیریت دسته بندی ها</a>
-        <a href="{% url 'restaurant_admin:Food_create' %}">ایجاد غذا</a>
         <a href="{% url 'restaurant_admin:admin_home' %}">خانه</a>
     </div>
 </header>
@@ -29,12 +28,14 @@
                             <p>دسته بندی : {{ food.food_category.name }}</p>
                         </div>
                         <div class="card-actions">
-                            <form method="post">
+                                 <form method="post">
                                 {% csrf_token %}
-                                <input type="hidden" name="food_id" value="{{ food.pk }}">
-                                <p><input type="submit" value="this"></p>
+                                <input type="hidden" name="id" value="{{ food.pk }}">
+                                <input class="button food_remove_btn" type="submit" value="تغییر">
                             </form>
-                            <button class="button food_remove_btn py-2 px-4" data-food="{{ food.pk }}" data-toggle="modal" data-target="#exampleModal">حذف</button>
+
+
+                            <button class="button food_remove_btn" data-food="{{ food.pk }}" >حذف</button>
                         </div>
                     </div>
                 </div>
@@ -87,8 +88,7 @@
         });
     });
 </script>
-</body>
-<!-- </ul> -->
+
 {% if chosen_object %}
     <form method="post" enctype="multipart/form-data">{% csrf_token %}
         <p>food name:{{ update_form.food_name }} {{ update_form.food_name.errors }}</p>
@@ -100,6 +100,26 @@
         <input type='hidden' name='pk' value="{{ chosen_object.pk }}">
         <input type="submit" name="edit" value="Update">
     </form>
-
 {% endif %}
+
+<form method="post">
+ {% csrf_token %}
+    <p><input type="submit" name="create" value="create" ></p>
+</form>
+
+{%if create_bool%}
+
+          <form method="post" enctype="multipart/form-data">{% csrf_token %}
+          <p>food name:{{create_form.food_name}} {{create_form.food_name.errors}}</p>
+          <p>food details:{{create_form.food_details }} {{create_form.food_details.errors}}</p>
+          <p>food availablitiy:{{ create_form.food_availability }} {{create_form.food_availability.errors}}</p>
+          <p>cost:{{ create_form.cost }} {{create_form.cost.errors}}</p>
+          <p>food cateogry:{{ create_form.food_category}} {{create_form.food_category.errors}}</p>
+          <p>image:{{create_form.food_img}} {{create_form.food_img.errors}}</p>
+          <input type="submit" name="create_1" value="CREATE">
+      </form>
+{%endif%}
 </main>
+
+</body>
+<!-- </ul> -->

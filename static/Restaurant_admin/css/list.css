@@ -10,7 +10,7 @@ font-weight: normal;
 @font-face {
 font-family: Shabnam;
 src: url('Shabnam-Bold-FD.eot');
-src: url('Shabnam-Bold-FD?#iefix') format('embedded-opentype'),
+src: url('Shabnam-Bold-FD.eot?#iefix') format('embedded-opentype'),
      url('Shabnam-Bold-FD.woff') format('woff'),
      url('Shabnam-Bold-FD.ttf') format('truetype');
 font-weight: bold;
@@ -169,7 +169,6 @@ main{
   display: flex;
   flex-wrap: nowrap;
   justify-content:space-around;
-  margin: 5px;
 }
 .card {
   min-width:100%;
@@ -196,7 +195,7 @@ padding: 0%;
   overflow: hidden;
   align-items: baseline;
   direction: rtl;
-  padding-bottom: 0.25vw;
+  padding-bottom: 2vw;
   font-size: 1vw;
 }
 

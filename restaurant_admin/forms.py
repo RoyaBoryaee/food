@@ -23,6 +23,16 @@ from . import models
 class InputForm(forms.Form):
     input = forms.CharField(max_length=10)
 
+class CostForm(forms.ModelForm):
+    class Meta:
+        model=models.Cost
+        fields='__all__'
+
+class TableForm(forms.ModelForm):
+    class Meta:
+        model=models.Table
+        fields='__all__'
+
 class WorkerForm(forms.ModelForm):
     class Meta:
         model=models.Worker

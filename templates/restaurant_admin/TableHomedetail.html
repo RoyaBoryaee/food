@@ -1,16 +1,31 @@
-<h1>Tables</h1>
+<a href="{% url 'restaurant_admin:WorkerHome_detail' %}">کارمندها</a>
+<a href="{% url 'restaurant_admin:CostHome_detail' %}">هزینه</a>
+<a href="{% url 'restaurant_admin:FoodHome_detail' %}">غذا</a>
+<a href="{% url 'restaurant_admin:admin_home' %}">خانه</a><h1>Tables</h1>
 <ul>
 {% for table in object_list %}
     <li>{{ table.table_number }}</li>
     <li>table availability:{{ table.table_availability  }}</li>
     <li>reservation state:{{ table.reservation_state }}</li>
-
     <ul><a href="{% url 'restaurant_admin:Table_delete' pk=table.pk %}">delete</a></ul>
 
 {% empty %}
     <li>No Table yet.</li>
 {% endfor %}
+
 </ul>
 
-<ul><a href="{% url 'restaurant_admin:Table_create' %}">table create</a></ul>
-<p><a href="{% url 'restaurant_admin:admin_home' %}">Home</a></p>
+<form method="post">
+ {% csrf_token %}
+    <p><input type="submit" name="create" value="create" ></p>
+</form>
+
+{%if create_bool%}
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <p>table number:{{ create_form.table_number }} {{create_form.table_number.errors}}</p>
+    <p>table availablitiy:{{ create_form.table_availability }}{{create_form.table_availability.errors}} </p>
+    <p>reservation state:{{ create_form.reservation_state }} {{create_form.reservation_state.errors}}</p>
+    <input type="submit" name="create_1" value="CREATE">
+</form>
+
+{%endif%}

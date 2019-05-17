@@ -6,7 +6,7 @@ from django.urls import reverse , reverse_lazy
 
 
 def upload_location(instance, filename):
-    print(instance.id)
+    print('upload location')
     return str(instance.id)+'/'
 
 class Worker(models.Model):
@@ -20,12 +20,13 @@ class Worker(models.Model):
     position = models.CharField(positions, max_length=3)
     home_addr = models.CharField(max_length=1000)
     regex_phoneNumber = RegexValidator(regex=r"0(21|26|25|86|24|23|81|28|31|44|11|74|83|51|45|17|41|54|87|71|66|34"
-                                             r"|56|13|77|76|61|38|58|35|84)[0-9]+")
-    regex_mobileNumber = RegexValidator(regex=r"^(\+98|0)?9\d{9}",
+                                             r"|56|13|77|76|61|38|58|35|84)\d{8}$")
+    regex_mobileNumber = RegexValidator(regex=r"^(\+98|0)?9\d{9}$",
                                         message="""your number isn't correct.
                                         true formats :
                                         1) +989999999999 2)09999999999""")
-    national_code = models.CharField(unique = True, max_length = 10)
+    regex_nationalcode=RegexValidator(regex=r"^\d{10}$", message=" should be number with 10 digit")
+    national_code = models.CharField(unique = True, max_length = 10, validators=[regex_nationalcode])
     # how many times using our service???
     phone_number = models.CharField(max_length=100, validators=[regex_phoneNumber])
     mobile_number = models.CharField(max_length=100, validators=[regex_mobileNumber])
@@ -68,7 +69,7 @@ class FoodCategory(models.Model):
 
 class Food(models.Model):
     food_name = models.CharField(unique=True, max_length=100)
-    food_details = models.CharField(max_length=1000)
+    food_details = models.CharField(max_length=1000, validators=[MinLengthValidator(50)])
     food_availability = models.BooleanField(default=True)
     cost = models.IntegerField(default=0)
     food_category = models.ForeignKey(FoodCategory, related_name='Food_FoodCategory', on_delete=models.CASCADE)
@@ -76,6 +77,7 @@ class Food(models.Model):
     takeaway_price = models.BooleanField(default=True)
 
     def __str__(self):
+        print(self.food_name)
         return self.food_name
 
     def get_absolute_url(self):
@@ -91,7 +93,7 @@ class OrderList(models.Model):
                 ('DE','Delivered'),)
     # table or null
     table = models.ForeignKey(Table, related_name="OrderList_Table", on_delete=models.CASCADE)
-    details = models.CharField(max_length=1000, validators=[MinLengthValidator(50)])
+    details = models.CharField(max_length=1000)
     # if takeaway= 1 then table ???
     takeaway = models.BooleanField(default=False)
     status = models.CharField(max_length=2, default='NO',choices=STATUSES)
