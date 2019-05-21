@@ -1,62 +1,92 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
+
 <head>
-    {#<link type="text/css" rel="stylesheet" href="{% static 'Restaurant_admin/materialize/css/materialize.css' %}"#}
-    {#      media="screen,projection"/>#}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <!-- <link type="text/css" rel="stylesheet" href="{% static 'Restaurant_admin/materialize/css/materialize.css' %}"
+        media="screen,projection"/> -->
     <link rel="stylesheet" href="{% static 'Restaurant_admin/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Restaurant_admin/MDB/css/mdb.min.css' %}">
     <link rel="stylesheet" href="{% static 'Restaurant_admin/css/list.css' %}">
 </head>
+
 <body>
-<header class="top_header topnav">
-    <div class="nav_items">
-        <a href="{% url 'restaurant_admin:FoodCategoryHome_detail' %}">مدیریت دسته بندی ها</a>
-        <a href="{% url 'restaurant_admin:admin_home' %}">خانه</a>
-    </div>
-</header>
-<main class="main_content">
-    <div class="wrapper" style="margin-left: 2%;margin-right: 2%">
-        <div class="row active-with-click">
-            {% for food in object_list %}
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <img src="{{ food.food_img.url }}" class="card-image">
-                        <div class="card-desc">
-                            <p>نام:{{ food.food_name }}</p>
-                            <p>هزینه: {{ food.cost }} تومان</p>
-                            <p>جزئیات :{{ food.food_details }}</p>
-                            {% if food.food_availability %}
-                                <p>وضعیت موجودی:موجود</p>
-                            {% else %}
-                                <p>وضعیت موجودی: ناموجود</p>
-                            {% endif %}
-                            <p>دسته بندی : {{ food.food_category.name }}</p>
-                        </div>
-                        <div class="card-actions">
-                            <form method="post" class="button">
-                                {% csrf_token %}
-                                <input type="hidden" name="id" value="{{ food.pk }}">
+    <header class="top_header topnav" style="margin-bottom: 2%">
+        <div class="nav_items">
+            <a href="{% url 'restaurant_admin:FoodCategoryHome_detail' %}">مدیریت دسته بندی ها</a>
+            <a href="{% url 'restaurant_admin:admin_home' %}">خانه</a>
+        </div>
+    </header>
+    <main class="main_content">
+        <div class="wrapper" style="margin-left: 2%;margin-right: 2%">
+            <div class="row">
 
-                                <input style="border: none; border-radius: 10%;background-color:rgb(92,164,169);color:#EDF2F4;"
-                                       type="submit" value="تغییر">
+                {% for food in object_list %}
 
+                <div class="col-12 col-md-4">
+                  
+                    <!-- Card -->
+                    <div class="card mb-4">
 
-                            </form>
-
-
-                            <button class="button food_remove_btn" data-food="{{ food.pk }}">حذف</button>
+                        <!-- Card image -->
+                        <div class="view overlay">
+                            <div id="img_size">
+                                <img class="card-img-top h-100" src="{{ food.food_img.url }}" alt="Card image cap">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
 
                         </div>
+
+                        <!-- Button -->
+                        <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3"><i
+                                class="fas fa-pen pl-1"></i></a>
+
+                        <!-- Card content -->
+                        <div class="card-body">
+
+                            <!-- Title -->
+                            <h4 class="card-title">{{ food.food_name }}</h4>
+                            <hr>
+                            <!-- Text -->
+                            <p class="card-text">{{ food.food_details }}</p>
+
+                        </div>
+
+                        <!-- Card footer -->
+                        <div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                            <ul class="list-unstyled list-inline font-small">
+                                <li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015
+                                </li>
+                                <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
+                                            class="far fa-comments pr-1"></i>12</a></li>
+                                <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
+                                            class="fab fa-facebook-f pr-1"> </i>21</a></li>
+                                <li class="list-inline-item"><a href="#" class="white-text"><i
+                                            class="fab fa-twitter pr-1"> </i>5</a></li>
+                            </ul>
+                        </div>
+
                     </div>
+                    <!-- Card -->
 
                 </div>
-            {% empty %}
+                {% empty %}
                 <li>No Food yet.</li>
-            {% endfor %}
 
-        </div>
-        {#  *********************update******************#}
-        {% if chosen_object %}
+
+                {% endfor %}
+            </div>
+
+
+            {#  *********************update******************#}
+            {% if chosen_object %}
             <form method="post" enctype="multipart/form-data">{% csrf_token %}
                 <p>food name:{{ update_form.food_name }} {{ update_form.food_name.errors }}</p>
                 <p>food details:{{ update_form.food_details }} {{ update_form.food_details.errors }}</p>
@@ -67,29 +97,32 @@
                 <input type='hidden' name='pk' value="{{ chosen_object.pk }}">
                 <input type="submit" name="edit" value="Update">
             </form>
-        {% endif %}
+            {% endif %}
 
-        {#  ****************create********************#}
-        <form method="post">
-            {% csrf_token %}
+            {#  ****************create********************#}
+            <form method="post">
+                {% csrf_token %}
+                <div class="fixed-action-btn">
+                        <input  class="btn-floating btn-lg pink darken-1" style="font-weight: bold ;color:white" type="submit" name="create"
+                        value="+">
+                </div>
+                
+            </form>
 
-            <input class="btn-floating btn-large waves-effect waves-light" type="submit" name="create" value="ایجاد">
-        </form>
-
-        {% if create_bool %}
+            {% if create_bool %}
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
-                        <form class="col s12" method="post" enctype="multipart/form-data">
+                        <form  method="post" enctype="multipart/form-data">
+                            <div class="form-row">
                             {% csrf_token %}
-                            <div class="input-field col s4">
-                                <div id="food_name">
+                            <div class="md-form form-group col-12 col-md-4">
+                                <div class="form-control" id="food_name">
                                     {{ create_form.food_name }}
                                     <label for="food_name">نام غذا</label>
                                     {{ create_form.food_name.errors }}
                                 </div>
                             </div>
-                            <div class="input-field col s4">
+                            <div class="md-form form-group col-12 col-md-4">
                                 <div id="food_detail">
                                     {{ create_form.food_details }}
                                     <label for="food_detail">جزئیات غذا</label>
@@ -105,7 +138,8 @@
                                     {{ create_form.food_availability.errors }}
                                 </div>
                             </div>
-                            <div class="input-field col s4">
+                        </div>
+                            <div class="input-field col col-12 col-md-4">
                                 <div>
                                     {{ create_form.cost }}
                                     <label for="food_cost"> هزینه غذا</label>
@@ -119,7 +153,7 @@
                                     {{ create_form.food_category.errors }}
                                 </div>
                             </div>
-                            <div class="file-field input-field col s4">
+                            <div class="file-field input-field col-12 col-md-4">
                                 <div style="margin-left:18%;width:58%;padding-bottom:13%;" class="btn">
                                     {{ create_form.food_img }}
                                     <label style="margin: 1%;color: white;font-size: 2vw;" for="profile;">عکس </label>
@@ -128,70 +162,68 @@
                             </div>
                             <div>
                                 <input style="margin-left: 93%;" class="btn" type="submit" name="create_1"
-                                       value="ایجاد">
+                                    value="ایجاد">
                             </div>
+                        
                         </form>
-
-                    </div>
                 </div>
             </div>
-        {% endif %}
+            {% endif %}
 
 
-    </div>
+        </div>
 
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-         aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
 
-                <div class="modal-header">
-                    <div>
-                        <h5 class="modal-title" id="exampleModalLabel">
-                            <div style="text-align:center;">
-                                حذف
-                            </div>
-                        </h5>
+                    <div class="modal-header">
+                        <div>
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                <div style="text-align:center;">
+                                    حذف
+                                </div>
+                            </h5>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="text-align:center;font-family: shabnam;">
-                    آیا مطمعنید میخواهید این غذا را حذف کنید؟
-                </div>
+                    <div class="modal-body" style="text-align:center;font-family: shabnam;">
+                        آیا مطمعنید میخواهید این غذا را حذف کنید؟
+                    </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
-                    <a id="food_remove_link" role="button" href="#">حذف</a>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                        <a id="food_remove_link" role="button" href="#">حذف</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
-<footer>
+    </main>
+    <footer>
 
-</footer>
+    </footer>
 
-<script src="{% static 'Restaurant_admin/assets/js/jquery-3.4.0.slim.min.js' %}"></script>
-<script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.min.js' %}"></script>
-<script>
-    document.querySelectorAll('.food_remove_btn').forEach(btn => {
-        btn.addEventListener('click', event => {
-            $('#exampleModal').modal();
-            const foodRemoveLink = document.getElementById('food_remove_link');
-            const url = "{% url 'restaurant_admin:Food_delete' pk=123 %}".replace('123', event.target.dataset.food);
-            foodRemoveLink.href = url;
+    <script src="{% static 'Restaurant_admin/MDB/js/jquery-3.4.0.min.js' %}"></script>
+    <script src="{% static 'Restaurant_admin/MDB/js/popper.min.js' %}"></script>
+    <script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- <script src="{% static 'Restaurant_admin/assets/js/jquery-3.4.0.slim.min.js' %}"></script> -->
+    <script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'Restaurant_admin/MDB/js/mdb.min.js' %}"></script>
+    <script>
+        document.querySelectorAll('.food_remove_btn').forEach(btn => {
+            btn.addEventListener('click', event => {
+                $('#exampleModal').modal();
+                const foodRemoveLink = document.getElementById('food_remove_link');
+                const url = "{% url 'restaurant_admin:Food_delete' pk=123 %}".replace('123', event.target.dataset.food);
+                foodRemoveLink.href = url;
+            });
         });
-    });
-</script>
-<script src="{% static 'Restaurant_admin/js/list.js' %}"></script>
+    </script>
+    <script src="{% static 'Restaurant_admin/js/list.js' %}"></script>
 </body>
+
 </html>
-
-
-
-
-

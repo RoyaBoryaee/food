@@ -29,7 +29,7 @@ SECRET_KEY = '-92%ci@+2pcjw+%tebqbe^$4s*$_gzh3-quh0_7*xsb=c85p*q'
 DEBUG = True
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.43.164','127.0.0.1']
 #
 LOGIN_REDIRECT_URL = 'restaurant_admin:admin_home'
 LOGOUT_REDIRECT_URL = 'restaurant_admin:login'
