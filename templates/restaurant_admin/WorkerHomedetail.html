@@ -1,4 +1,6 @@
 {% load staticfiles %}
+<link type="text/css" rel="stylesheet" href="{% static 'Restaurant_admin/materialize/css/materialize.css' %}"
+      media="screen,projection"/>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
@@ -20,6 +22,90 @@
         <a href="{% url 'restaurant_admin:admin_home' %}">خانه</a>
     </div>
 </header>
+{% if create_bool %}
+    <div class="card">
+    <div class="card-body">
+    <div class="row">
+        <form class="col s12" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-field col s4">
+
+                <div id="f_name">
+                    {{ create_form.f_name }}
+                    <label for="f_name">نام</label>
+                    {{ create_form.f_name.errors }}</div>
+
+            </div>
+            <div class="input-field col s4">
+                <div id="name">
+                    {{ create_form.name }}
+                    <label for="name">نام خانوادگی</label>
+                    {{ create_form.name.errors }}
+                </div>
+            </div>
+            <div class="input-field col s4">
+                <div id="position">
+                    {{ create_form.position }}
+                    <label style="margin: 1%;" for="position">سمت</label>
+                </div>
+
+            </div>
+            <div class="input-field col s4">
+                <div id="home_addr">
+                    {{ create_form.home_addr }}
+                    <label style="margin: 1%;" for="home_addr">آدزس منزل</label>
+                    {{ create_form.home_addr.errors }}
+                </div>
+
+            </div>
+            <div class="input-field col s4">
+                <div id="phone_number">
+                    {{ create_form.phone_number }}
+                    <label style="margin: 1%;" for="phone_number">شماره تلفن</label>
+                    {{ create_form.phone_number.errors }}
+                </div>
+            </div>
+            <div class="input-field col s4">
+                <div id="national_code">
+                    {{ create_form.national_code }}
+                    <label style="margin: 1%;" for="national_code">کد ملی</label>
+                    {{ create_form.national_code.errors }}
+                </div>
+            </div>
+
+            <div class="input-field col s4">
+                <div id="mobile_number">
+                    {{ create_form.mobile_number }}
+                    <label style="margin: 1%;" for="mobile_number">شماره موبایل</label>
+                    {{ create_form.mobile_number.errors }}
+                </div>
+            </div>
+            <div class="file-field input-field col s4">
+                <div style="margin-left:18%;width:58%;padding-bottom:13%;" class="btn">
+                     {{ create_form.profile }}
+                     <label style="margin: 1%;color: white;font-size: 2vw;" for="profile;">عکس </label>
+                    {{ create_form.profile.errors }}
+                </div>
+            </div>
+            <div class="input-field col s4">
+                <div>
+                    {{ create_form.published_date }}
+
+                     <label style="direction:rtl;margin: 1%;" for="published_date">تاریخ انتشار</label>
+
+
+                </div>
+            </div>
+            <br>
+            <div >
+                <input style="margin-left: 93%;" class="btn" type="submit" name="create_1" value="ایجاد">
+            </div>
+
+        </form>
+    </div>
+{% endif %}
+</div>
+</div>
 {% if chosen_object %}
     <main class="main_content" style="padding: 2%">
     <div class="card w-75">
@@ -81,11 +167,11 @@
     </div>
 {% endif %}
 <br>
-<div class="wrapper">
+<div class="wrapper" style="margin-left: 2%;margin-right: 2%">
     <div class="row active-with-click">
         {% for worker in object_list %}
             <div class="col-md-4 col-sm-6 col-xs-12">
-                <article class="material-card Teal">
+                <article class="material-card teal">
                     <h2>
                         <span>
                             <div style="text-align:right;display: flex;direction: rtl;">
@@ -104,9 +190,9 @@
 
                     </h2>
                     <div class="mc-content">
-                        <div  class="mc-description" style="text-align:right;direction: rtl;">
+                        <div class="mc-description" style="text-align:right;direction: rtl;">
                             <p>شماره ملی:{{ worker.national_code }}</p>
-                            <p>شماره تلفن:{{worker.phone_number }}</p>
+                            <p>شماره تلفن:{{ worker.phone_number }}</p>
 
 
                         </div>
@@ -119,9 +205,9 @@
                     <a class="mc-btn-action">
                         <i class="fa fa-bars"></i>
                     </a>
-                     <div class="mc-footer">
+                    <div class="mc-footer">
 
-                </div>
+                    </div>
                 </article>
             </div>
         {% empty %}
@@ -163,62 +249,8 @@
 
 <form method="post">
     {% csrf_token %}
-    <p><input type="submit" name="create" value="create"></p>
+    <input class="btn-floating btn-large waves-effect waves-light" type="submit" name="create" value="ایجاد">
 </form>
 
-{% if create_bool %}
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table border="1">
-            <tr>
-                <th>{{ create_form.name.label_tag }}</th>
-                <td>{{ create_form.name }} </td>
-                <td>{{ create_form.name.errors }}</td>
-            </tr>
-            <tr>
-                <th>{{ create_form.f_name.label_tag }}</th>
-                <td>{{ create_form.f_name }} </td>
-                <td>{{ create_form.f_name.errors }}</td>
-            </tr>
-            <tr>
-                <th>Position</th>
-                <td>{{ create_form.position.label_tag }}</td>
-                <td>{{ create_form.position }}</td>
-            </tr>
-            <tr>
-                <th>{{ create_form.home_addr.label_tag }}</th>
-                <td>{{ create_form.home_addr }} </td>
-                <td>{{ create_form.home_addr.errors }}</td>
-            </tr>
-            <tr>
-                <th>{{ create_form.phone_number.label_tag }}</th>
-                <td>{{ create_form.phone_number }} </td>
-                <td>{{ create_form.phone_number.errors }}</td>
-            </tr>
-            <tr>
-                <th>{{ create_form.national_code.label_tag }}</th>
-                <td>{{ create_form.national_code }} </td>
-                <td>{{ create_form.national_code.errors }}</td>
-            </tr>
-            <tr>
-                <th>{{ create_form.mobile_number.label_tag }}</th>
-                <td>{{ create_form.mobile_number }} </td>
-                <td>{{ create_form.mobile_number.errors }}</td>
-            </tr>
-            <tr>
-                <th>{{ create_form.profile.label_tag }}</th>
-                <td>{{ create_form.profile }} </td>
-                <td>{{ create_form.profile.errors }}</td>
-            </tr>
-            <tr>
-                <th>{{ create_form.published_date.label_tag }}</th>
-                <td>{{ create_form.published_date }} </td>
-                <td>{{ create_form.published_date.errors }}</td>
-                <td>{{ create_form.published_date.value }}</td>
-            </tr>
-        </table>
-        <input type="submit" name="create_1" value="CREATE">
-    </form>
 
-{% endif %}

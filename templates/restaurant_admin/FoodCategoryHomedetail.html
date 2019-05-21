@@ -16,78 +16,81 @@
         {% for foodc in object_list %}
             <li>
 
-                    <div class="collapsible-header" style="color:rgb(92,164,169);direction: rtl;font-size: 2vw;">
-                       {{ foodc.name }}
-                    </div>
+                <div class="collapsible-header" style="color:rgb(92,164,169);direction: rtl;font-size: 2vw;">
+                    {{ foodc.name }}
+                </div>
 
 
-
-            <div class="collapsible-body">
-                {% for food in foodc.Food_FoodCategory.all %}
-
-
-                  <p style="text-align:right;direction: rtl;font-size: 2vw;">
-                   <a style="text-decoration: none;color:rgb(56,113,117);" href={{ food.get_absolute_url }}>{{ food.food_name }}</a>
-                  </p>
-
-                {% empty %}
-
-<p style="text-align:right;direction: rtl;font-size: 2vw;color:rgb(56,113,117);">غذایی موجود نیست.</p>
+                <div class="collapsible-body">
+                    {% for food in foodc.Food_FoodCategory.all %}
 
 
-                {% endfor %}
+                        <p style="text-align:right;direction: rtl;font-size: 2vw;">
+                            <a style="text-decoration: none;color:rgb(56,113,117);"
+                               href={{ food.get_absolute_url }}>{{ food.food_name }}</a>
+                        </p>
+
+                    {% empty %}
+
+                        <p style="text-align:right;direction: rtl;font-size: 2vw;color:rgb(56,113,117);">غذایی موجود
+                            نیست.</p>
 
 
-{#                <form method="post">#}
-{#                    {% csrf_token %}#}
-{#                    <input type="hidden" name="id" value="{{ foodc.pk }}">#}
-{#                    <p><input type="submit" value="this"></p>#}
-{#                </form>#}
-{##}
-{##}
-{#                <a href="{% url 'restaurant_admin:FoodCategory_delete' pk=foodc.pk %}">delete</a>#}
+                    {% endfor %}
 
-</div>
+
+                    {#                <form method="post">#}
+                    {#                    {% csrf_token %}#}
+                    {#                    <input type="hidden" name="id" value="{{ foodc.pk }}">#}
+                    {#                    <p><input type="submit" value="this"></p>#}
+                    {#                </form>#}
+                    {##}
+                    {##}
+                    {#                <a href="{% url 'restaurant_admin:FoodCategory_delete' pk=foodc.pk %}">delete</a>#}
+
+                </div>
             </li>
-                {% empty %}
-                No FoodCategory yet.
+        {% empty %}
+            No FoodCategory yet.
 
         {% endfor %}
-        </ul>
+    </ul>
 
-        {% if chosen_object %}
-            <p>name</p>
-            <form method="post" enctype="multipart/form-data">{% csrf_token %}
-                <p>category :{{ update_form.name }} {{ update_form.name.errors }}</p>
-                <input type='hidden' name='pk' value="{{ chosen_object.pk }}">
-                <input type="submit" name="edit" value="Update">
-            </form>
+    {% if chosen_object %}
+        <p>name</p>
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            <p>category :{{ update_form.name }} {{ update_form.name.errors }}</p>
+            <input type='hidden' name='pk' value="{{ chosen_object.pk }}">
+            <input type="submit" name="edit" value="Update">
+        </form>
 
-        {% endif %}
-        <form method="post">
-            {% csrf_token %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
 
-<i class="fa fa-plus my-float"></i>
-               <input class="float" type="submit" name="create" value="ایجاد">
+    <input   class="btn-floating btn-large waves-effect waves-light"type="submit" name="create" value="ایجاد">
+
+
+    </form>
+
+
+    {% if create_bool %}
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            <p>category: {{ create_form.name }} {{ create_form.name.errors }}</p>
+
+            <input type="submit" name="create_1" value="CREATE">
 
         </form>
-        {% if create_bool %}
-            <form method="post" enctype="multipart/form-data">{% csrf_token %}
-                <p>category: {{ create_form.name }} {{ create_form.name.errors }}</p>
+    {% endif %}
 
-                <input type="submit" name="create_1" value="CREATE">
+    <script type="text/javascript" src="{% static 'Restaurant_admin/materialize/js/materialize.min.js' %}"></script>
 
-            </form>
-        {% endif %}
-
-        <script type="text/javascript" src="{% static 'Restaurant_admin/materialize/js/materialize.min.js' %}"></script>
-
-        <script src="{% static 'Restaurant_admin/js/food.js' %}"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var elems = document.querySelectorAll('.collapsible');
-                var instances = M.Collapsible.init(elems);
-            });
-        </script>
+    <script src="{% static 'Restaurant_admin/js/food.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.collapsible');
+            var instances = M.Collapsible.init(elems);
+        });
+    </script>
 
 </main>

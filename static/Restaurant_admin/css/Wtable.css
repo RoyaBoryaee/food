@@ -96,6 +96,10 @@
     flex: 1;
     overflow: auto;
   }
+  .btn{
+    color: white;
+    background-color: rgb(92,164,169);
+  }
   .material-card {
     position: relative;
     height: 0;
@@ -203,6 +207,9 @@
   }
   .material-card.mc-active .mc-btn-action {
     top: 62px;
+  }
+  body{
+    font-family: shabnam;
   }
 
   .material-card .mc-description {
@@ -1347,5 +1354,8 @@
     background-color: #CFD8DC;
   }
   .material-card.Blue-Grey.mc-active .mc-btn-action {
-    border-color: #ECEFF  1;
+    border-color: #ECEFF  ;
+  }
+  .teal{
+    background-color: white !important;
   }
