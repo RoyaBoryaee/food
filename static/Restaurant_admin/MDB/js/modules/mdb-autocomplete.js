@@ -35,8 +35,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       };
       this.$input = input;
       this.options = this.assignOptions(options);
-      this.$clearButton = $('.mdb-autocomplete-clear');
-      this.$autocompleteWrap = $('<ul class="mdb-autocomplete-wrap"></ul>');
+      this.$clearButton = $('.mdb.css-autocomplete-clear');
+      this.$autocompleteWrap = $('<ul class="mdb.css-autocomplete-wrap"></ul>');
       this.init();
     }
 
@@ -111,9 +111,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           if ($inputValue.length === 0) {
-            _this3.$input.parent().find('.mdb-autocomplete-clear').css('visibility', 'hidden');
+            _this3.$input.parent().find('.mdb.css-autocomplete-clear').css('visibility', 'hidden');
           } else {
-            _this3.$input.parent().find('.mdb-autocomplete-clear').css('visibility', 'visible');
+            _this3.$input.parent().find('.mdb.css-autocomplete-clear').css('visibility', 'visible');
           }
 
           _this3.$autocompleteWrap.children().css('color', _this3.options.dataColor);
@@ -140,7 +140,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.$clearButton.on('click', function (e) {
           e.preventDefault();
           var $this = $(e.currentTarget);
-          $this.parent().find('.mdb-autocomplete').val('');
+          $this.parent().find('.mdb.css-autocomplete').val('');
           $this.css('visibility', 'hidden');
 
           _this5.$autocompleteWrap.empty();
@@ -151,14 +151,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     }, {
       key: "changeSVGcolors",
       value: function changeSVGcolors() {
-        if (this.$input.hasClass('mdb-autocomplete')) {
+        if (this.$input.hasClass('mdb.css-autocomplete')) {
           this.$input.on('click keyup', function (e) {
             e.preventDefault();
-            $(e.target).parent().find('.mdb-autocomplete-clear').find('svg').css('fill', xColor);
+            $(e.target).parent().find('.mdb.css-autocomplete-clear').find('svg').css('fill', xColor);
           });
           this.$input.on('blur', function (e) {
             e.preventDefault();
-            $(e.target).parent().find('.mdb-autocomplete-clear').find('svg').css('fill', xBlurColor);
+            $(e.target).parent().find('.mdb.css-autocomplete-clear').find('svg').css('fill', xBlurColor);
           });
         }
       }

@@ -1,20 +1,18 @@
 {% load staticfiles %}
-<link type="text/css" rel="stylesheet" href="{% static 'Restaurant_admin/materialize/css/materialize.css' %}"
-      media="screen,projection"/>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-
 <head>
+    <link rel="stylesheet" href="{% static 'Restaurant_admin/MDB/css/mdb.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'Restaurant_admin/materialize/css/materialize.css' %}"
+          media="screen,projection"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'Restaurant_admin/assets/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'Restaurant_admin/css/Wtable.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-
-<html lang="en">
-<header class="top_header topnav">
+<body>
+<header class="top_header topnav" style="margin-bottom:1%">
     <div class="nav_items">
         <a href="{% url 'restaurant_admin:CostHome_detail' %}">هزینه</a>
         <a href="{% url 'restaurant_admin:TableHome_detail' %}">میزها</a>
@@ -22,157 +20,101 @@
         <a href="{% url 'restaurant_admin:admin_home' %}">خانه</a>
     </div>
 </header>
-{% if create_bool %}
-    <div class="card">
-    <div class="card-body">
-    <div class="row">
-        <form class="col s12" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="input-field col s4">
+<main class="main_content">
+    <div class="wrapper" style="margin-left: 2%;margin-right: 2%">
+        {#    ******************create*************#}
+        {% if create_bool %}
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <form class="col s12" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="input-field col s4">
 
-                <div id="f_name">
-                    {{ create_form.f_name }}
-                    <label for="f_name">نام</label>
-                    {{ create_form.f_name.errors }}</div>
+                                <div id="f_name">
+                                    {{ create_form.f_name }}
+                                    <label for="f_name">نام</label>
+                                    {{ create_form.f_name.errors }}
+                                </div>
 
-            </div>
-            <div class="input-field col s4">
-                <div id="name">
-                    {{ create_form.name }}
-                    <label for="name">نام خانوادگی</label>
-                    {{ create_form.name.errors }}
+                            </div>
+                            <div class="input-field col s4">
+                                <div id="name">
+                                    {{ create_form.name }}
+                                    <label for="name">نام خانوادگی</label>
+                                    {{ create_form.name.errors }}
+                                </div>
+                            </div>
+                            <div class="input-field col s4">
+                                <div id="position">
+                                    {{ create_form.position }}
+                                    <label style="margin: 1%;" for="position">سمت</label>
+                                </div>
+
+                            </div>
+                            <div class="input-field col s4">
+                                <div id="home_addr">
+                                    {{ create_form.home_addr }}
+                                    <label style="margin: 1%;" for="home_addr">آدزس منزل</label>
+                                    {{ create_form.home_addr.errors }}
+                                </div>
+
+                            </div>
+                            <div class="input-field col s4">
+                                <div id="phone_number">
+                                    {{ create_form.phone_number }}
+                                    <label style="margin: 1%;" for="phone_number">شماره تلفن</label>
+                                    {{ create_form.phone_number.errors }}
+                                </div>
+                            </div>
+                            <div class="input-field col s4">
+                                <div id="national_code">
+                                    {{ create_form.national_code }}
+                                    <label style="margin: 1%;" for="national_code">کد ملی</label>
+                                    {{ create_form.national_code.errors }}
+                                </div>
+                            </div>
+
+                            <div class="input-field col s4">
+                                <div id="mobile_number">
+                                    {{ create_form.mobile_number }}
+                                    <label style="margin: 1%;" for="mobile_number">شماره موبایل</label>
+                                    {{ create_form.mobile_number.errors }}
+                                </div>
+                            </div>
+                            <div class="file-field input-field col s4">
+                                <div style="margin-left:18%;width:58%;padding-bottom:13%;" class="btn">
+                                    {{ create_form.profile }}
+                                    <label style="margin: 1%;color: white;font-size: 2vw;" for="profile;">عکس </label>
+                                    {{ create_form.profile.errors }}
+                                </div>
+                            </div>
+                            <div class="input-field col s4">
+                                <div>
+                                    {{ create_form.published_date }}
+
+                                    <label style="direction:rtl;margin: 1%;" for="published_date">تاریخ انتشار</label>
+
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col s4">
+                                <input class="btn" type="submit" name="create_1"
+                                       value="ایجاد">
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="input-field col s4">
-                <div id="position">
-                    {{ create_form.position }}
-                    <label style="margin: 1%;" for="position">سمت</label>
-                </div>
-
-            </div>
-            <div class="input-field col s4">
-                <div id="home_addr">
-                    {{ create_form.home_addr }}
-                    <label style="margin: 1%;" for="home_addr">آدزس منزل</label>
-                    {{ create_form.home_addr.errors }}
-                </div>
-
-            </div>
-            <div class="input-field col s4">
-                <div id="phone_number">
-                    {{ create_form.phone_number }}
-                    <label style="margin: 1%;" for="phone_number">شماره تلفن</label>
-                    {{ create_form.phone_number.errors }}
-                </div>
-            </div>
-            <div class="input-field col s4">
-                <div id="national_code">
-                    {{ create_form.national_code }}
-                    <label style="margin: 1%;" for="national_code">کد ملی</label>
-                    {{ create_form.national_code.errors }}
-                </div>
-            </div>
-
-            <div class="input-field col s4">
-                <div id="mobile_number">
-                    {{ create_form.mobile_number }}
-                    <label style="margin: 1%;" for="mobile_number">شماره موبایل</label>
-                    {{ create_form.mobile_number.errors }}
-                </div>
-            </div>
-            <div class="file-field input-field col s4">
-                <div style="margin-left:18%;width:58%;padding-bottom:13%;" class="btn">
-                     {{ create_form.profile }}
-                     <label style="margin: 1%;color: white;font-size: 2vw;" for="profile;">عکس </label>
-                    {{ create_form.profile.errors }}
-                </div>
-            </div>
-            <div class="input-field col s4">
-                <div>
-                    {{ create_form.published_date }}
-
-                     <label style="direction:rtl;margin: 1%;" for="published_date">تاریخ انتشار</label>
-
-
-                </div>
-            </div>
-            <br>
-            <div >
-                <input style="margin-left: 93%;" class="btn" type="submit" name="create_1" value="ایجاد">
-            </div>
-
-        </form>
-    </div>
-{% endif %}
-</div>
-</div>
-{% if chosen_object %}
-    <main class="main_content" style="padding: 2%">
-    <div class="card w-75">
-        <div class="card-body">
-            <div class="card-text">
-
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-
-                    {{ update_form.name.label_tag }}
-                    {{ update_form.name }}
-                    {{ update_form.name.errors }}
-
-                    {{ update_form.f_name.label_tag }}
-                    {{ update_form.f_name }}
-                    {{ update_form.f_name.errors }}
-
-                    <p>سمت</p>
-                    <!-- <td>{{ update_form.position.label_tag }}</td> -->
-                    {{ update_form.position }}
-
-
-                    {{ update_form.home_addr.label_tag }}
-                    {{ update_form.home_addr }}
-                    {{ update_form.home_addr.errors }}
-
-
-                    {{ update_form.phone_number.label_tag }}
-                    {{ update_form.phone_number }}
-                    {{ update_form.phone_number.errors }}
-
-
-                    {{ update_form.national_code.label_tag }}
-                    {{ update_form.national_code }}
-                    {{ update_form.national_code.errors }}
-
-
-                    {{ update_form.mobile_number.label_tag }}
-                    {{ update_form.mobile_number }}
-                    {{ update_form.mobile_number.errors }}
-
-                    {{ update_form.profile.label_tag }}
-                    {{ update_form.profile }}
-                    {{ update_form.profile.errors }}
-
-
-                    {{ update_form.published_date.label_tag }}
-                    {{ update_form.published_date }}
-                    <!-- <td>{{ update_form.published_date.errors }}</td> -->
-                    <!-- <td>{{ update_form.published_date.value }}</td> -->
-
-
-                    <input type='hidden' name='pk' value="{{ chosen_object.pk }}">
-                    <input type="submit" name="edit" value="Update">
-                </form>
-
-            </div>
-        </div>
-    </div>
-{% endif %}
-<br>
-<div class="wrapper" style="margin-left: 2%;margin-right: 2%">
-    <div class="row active-with-click">
-        {% for worker in object_list %}
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <article class="material-card teal">
-                    <h2>
+        {% endif %}
+        {#********************end create*******************#}
+        <div class="row active-with-click">
+            {% for worker in object_list %}
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <article class="material-card teal">
+                        <h2>
                         <span>
                             <div style="text-align:right;display: flex;direction: rtl;">
                                 <form method="post">
@@ -183,41 +125,48 @@
                                 </form>
                             </div>
                         </span>
-                        <strong>
-                            <i class="fas fa-star"></i>
-                            {{ worker.position }}
-                        </strong>
+                            <strong>
+                                <i class="fas fa-star"></i>
+                                {{ worker.position }}
+                            </strong>
 
-                    </h2>
-                    <div class="mc-content">
-                        <div class="mc-description" style="text-align:right;direction: rtl;">
-                            <p>شماره ملی:{{ worker.national_code }}</p>
-                            <p>شماره تلفن:{{ worker.phone_number }}</p>
+                        </h2>
+                        <div class="mc-content">
+                            <div class="mc-description" style="text-align:right;direction: rtl;">
+                                <p>شماره ملی:{{ worker.national_code }}</p>
+                                <p>شماره تلفن:{{ worker.phone_number }}</p>
 
+
+                            </div>
+                            <div class="img-container">
+                                <img class="img-responsive"
+                                     src="{{ worker.profile.url }}">
+                            </div>
 
                         </div>
-                        <div class="img-container">
-                            <img class="img-responsive"
-                                 src="{{ worker.profile.url }}">
+                        <a class="mc-btn-action">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <div class="mc-footer">
+
                         </div>
+                    </article>
+                </div>
+            {% empty %}
+                <li>No Worker yet.</li>
 
-                    </div>
-                    <a class="mc-btn-action">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <div class="mc-footer">
-
-                    </div>
-                </article>
-            </div>
-        {% empty %}
-            <li>No Worker yet.</li>
-
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-</div>
-
-
+    <form method="post">
+        {% csrf_token %}
+        <div class="fixed-action-btn">
+            <input class="btn-floating btn-lg teal darken-1" style="font-size:larger;font-weight: bold ;color:white;border: none;border-radius: 50%;"
+                   type="submit"
+                   name="create"
+                   value="+">
+        </div>
+    </form>
 </main>
 <script>
     document.querySelectorAll('.worker_remove_btn').forEach(btn => {
@@ -234,23 +183,4 @@
 <script src="{% static 'Restaurant_admin/assets/js/jquery-3.4.0.slim.min.js' %}"></script>
 <script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.min.js' %}"></script>
-<!-- <script>
-    $('.js-pscroll').each(function () {
-        var ps = new PerfectScrollbar(this);
-
-        $(window).on('resize', function () {
-            ps.update();
-        })
-    });
-
-
-</script> -->
-
-
-<form method="post">
-    {% csrf_token %}
-    <input class="btn-floating btn-large waves-effect waves-light" type="submit" name="create" value="ایجاد">
-</form>
-
-
-
+</body>

@@ -60,7 +60,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       this.$dropdownIcon = this.options.BSinputText ? '' : $('<span class="caret">&#9660;</span>');
       this.$searchInput = null;
       this.$toggleAll = $("<li class=\"select-toggle-all\"><span><input type=\"checkbox\" class=\"form-check-input\"><label>Select all</label></span></li>");
-      this.mainLabel = this.$nativeSelect.next('.mdb-main-label');
+      this.mainLabel = this.$nativeSelect.next('.mdb.css-main-label');
       this.valuesSelected = [];
       this.keyCodes = {
         tab: 9,
@@ -833,7 +833,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         return originalVal.call(this);
       }
 
-      if (this.data('stop-refresh') !== true && this.hasClass('mdb-select') && this.hasClass('initialized')) {
+      if (this.data('stop-refresh') !== true && this.hasClass('mdb.css-select') && this.hasClass('initialized')) {
         MaterialSelect.clearMutationObservers();
         this.materialSelect({
           'destroy': true

@@ -1,9 +1,13 @@
 {% load staticfiles %}
-<link type="text/css" rel="stylesheet" href="{% static 'Restaurant_admin/materialize/css/materialize.css' %}"
-      media="screen,projection"/>
-<link rel="stylesheet" href="{% static 'Restaurant_admin/css/food.css' %}">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<header class="top_header topnav">
+<head>
+    <link rel="stylesheet" href="{% static 'Restaurant_admin/MDB/css/mdb.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'Restaurant_admin/materialize/css/materialize.css' %}"
+          media="screen,projection"/>
+    <link rel="stylesheet" href="{% static 'Restaurant_admin/css/food.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<header class="top_header topnav" style="margin-bottom: 1%">
     <div class="nav_items">
         <a href="{% url 'restaurant_admin:CostHome_detail' %}">هزینه</a>
         <a href="{% url 'restaurant_admin:TableHome_detail' %}">میزها</a>
@@ -16,7 +20,7 @@
         {% for foodc in object_list %}
             <li>
 
-                <div class="collapsible-header" style="color:rgb(92,164,169);direction: rtl;font-size: 2vw;">
+                <div class="collapsible-header" style="color:rgb(92,164,169);direction: rtl;font-size: 1.5vw;">
                     {{ foodc.name }}
                 </div>
 
@@ -55,7 +59,7 @@
 
         {% endfor %}
     </ul>
-
+{#***********update**********#}
     {% if chosen_object %}
         <p>name</p>
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
@@ -63,17 +67,21 @@
             <input type='hidden' name='pk' value="{{ chosen_object.pk }}">
             <input type="submit" name="edit" value="Update">
         </form>
-
     {% endif %}
+{#***********end update***********#}
+{#************button create*************#}
     <form method="post">
         {% csrf_token %}
-
-    <input   class="btn-floating btn-large waves-effect waves-light"type="submit" name="create" value="ایجاد">
-
-
+        <div class="fixed-action-btn">
+              <input class="btn-floating btn-lg teal darken-1" style="font-size:larger;font-weight: bold ;color:white;border: none;"
+                       type="submit"
+                       name="create"
+                       value="+">
+        </div>
     </form>
+{#************end button create***********#}
 
-
+{#******************create*****************#}
     {% if create_bool %}
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
             <p>category: {{ create_form.name }} {{ create_form.name.errors }}</p>
@@ -82,15 +90,15 @@
 
         </form>
     {% endif %}
-
-    <script type="text/javascript" src="{% static 'Restaurant_admin/materialize/js/materialize.min.js' %}"></script>
-
-    <script src="{% static 'Restaurant_admin/js/food.js' %}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.collapsible');
-            var instances = M.Collapsible.init(elems);
-        });
-    </script>
-
+{#***************end create*******************#}
 </main>
+<script type="text/javascript" src="{% static 'Restaurant_admin/materialize/js/materialize.min.js' %}"></script>
+
+<script src="{% static 'Restaurant_admin/js/food.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems);
+    });
+</script>
+</body>
