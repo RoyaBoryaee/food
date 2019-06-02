@@ -135,10 +135,10 @@ main {
     flex: 1;
     overflow: auto;
 }
-  .btn{
-    color: white;
-    background-color: rgb(92,164,169);
-  }
+  /*.btn{*/
+    /*color: white;*/
+    /*background-color: rgb(92,164,169);*/
+  /*}*/
   .material-card {
     position: relative;
     height: 0;
@@ -900,12 +900,12 @@ main {
   .material-card.Teal .mc-btn-action:hover {
     background-color: #004D40;
   }
-  .material-card.Teal .mc-footer h4 {
-    color: #004D40;
-  }
-  .material-card.Teal .mc-footer a {
-    background-color: #004D40;
-  }
+  /*.material-card.Teal .mc-footer h4 {*/
+    /*color: #004D40;*/
+  /*}*/
+  /*.material-card.Teal .mc-footer a {*/
+    /*background-color: #004D40;*/
+  /*}*/
   .material-card.Teal.mc-active .mc-content {
     background-color: #E0F2F1;
   }
@@ -1397,4 +1397,7 @@ main {
   }
   .teal{
     background-color: white !important;
+  }
+  a{
+    color: white;
   }

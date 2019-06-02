@@ -153,6 +153,7 @@ a{
 }
 .modal{
     background-color:transparent;
+
     z-index: 1050;
 height:auto;
 width: auto;}

@@ -16,12 +16,42 @@
     </div>
 </header>
 <main class="main_content">
+    <br>
+    {#*********************create**********************#}
+    {% if create_bool %}
+        <div class="card" style="text-align: right;direction: rtl;">
+            <div class="card-body">
+                <div class="row">
+                    <form class="col xl12 l12 m12 s12" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="input-field col xl12 l12 m12  s12 ">
+                                <div id="fC_name">
+                                    {{ create_form.name }}
+                                    <label for="fC_name">نام</label>
+                                    {{ create_form.name.errors }}
+                                </div>
+                                <div class="btn waves-effect waves-light teal col  xl3 l3 m6 s12 ">
+                                    <input style="color: white;font-size: larger;" type="submit" name="create_1"
+                                           value="ایجاد">
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {#*******************end create********************#}
     <ul class="collapsible popout" style="margin:10%;">
         {% for foodc in object_list %}
             <li>
 
                 <div class="collapsible-header" style="color:rgb(92,164,169);direction: rtl;font-size: 1.5vw;">
                     {{ foodc.name }}
+                    {#                    *********************delete & update ************#}
+                    {#                    <a><i class="fas fa-pen"></i></a>#}
                 </div>
 
 
@@ -59,7 +89,7 @@
 
         {% endfor %}
     </ul>
-{#***********update**********#}
+    {#**********************update*********************#}
     {% if chosen_object %}
         <p>name</p>
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
@@ -68,29 +98,19 @@
             <input type="submit" name="edit" value="Update">
         </form>
     {% endif %}
-{#***********end update***********#}
-{#************button create*************#}
+    {#********************end update*******************#}
+    {#*******************button create*****************#}
     <form method="post">
         {% csrf_token %}
         <div class="fixed-action-btn">
-              <input class="btn-floating btn-lg teal darken-1" style="font-size:larger;font-weight: bold ;color:white;border: none;"
-                       type="submit"
-                       name="create"
-                       value="+">
+            <input class="btn-floating btn-lg teal darken-1"
+                   style="font-size:larger;font-weight: bold ;color:white;border: none;"
+                   type="submit"
+                   name="create"
+                   value="+">
         </div>
     </form>
-{#************end button create***********#}
-
-{#******************create*****************#}
-    {% if create_bool %}
-        <form method="post" enctype="multipart/form-data">{% csrf_token %}
-            <p>category: {{ create_form.name }} {{ create_form.name.errors }}</p>
-
-            <input type="submit" name="create_1" value="CREATE">
-
-        </form>
-    {% endif %}
-{#***************end create*******************#}
+    {#*****************end button create***************#}
 </main>
 <script type="text/javascript" src="{% static 'Restaurant_admin/materialize/js/materialize.min.js' %}"></script>
 
