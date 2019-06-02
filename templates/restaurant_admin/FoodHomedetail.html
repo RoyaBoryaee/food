@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{% static 'Restaurant_admin/css/list.css' %}">
 </head>
 <body>
-<header class="top_header topnav" style="margin-bottom: 1%">
+<header class="top_header topnav">
     <div class="nav_items">
         <a href="{% url 'restaurant_admin:FoodCategoryHome_detail' %}">مدیریت دسته بندی ها</a>
         <a href="{% url 'restaurant_admin:admin_home' %}">خانه</a>
@@ -22,13 +22,14 @@
 </header>
 <main class="main_content">
     <div class="wrapper" style="margin-left: 2%;margin-right: 2%">
+    <br>
         {#  *********************update******************#}
 
         {% if chosen_object %}
-            <div class="card" style="text-align: right;direction: rtl;">
+            <div class="card" style="text-align: right;direction: rtl;transform: none;">
                 <div class="card-body">
                     <div class="row">
-                        <form class="col xl12 l12 m12 s12" method="post" enctype="multipart/form-data">
+                        <form class="col xl12 l12 m12 s12" method="post" enctype="multipart/form-data" >
                             {% csrf_token %}
                             <div class="row">
 
@@ -96,7 +97,7 @@
         {#    *****************create**********************#}
 
         {% if create_bool %}
-            <div class="card" style="text-align: right;direction: rtl;">
+            <div class="card" style="text-align: right;direction: rtl;transform: none;">
                 <div class="card-body">
                     <div class="row">
                         <form class="col xl12 l12 m12 s12" method="post" enctype="multipart/form-data">
@@ -117,8 +118,9 @@
                                     </div>
                                 </div>
                                 <div class="input-field col xl4 l4 m6 s12">
-                                    <div id="food_availability">
+                                    <div id="food_availability" class="switch">
                                         {{ create_form.food_availability }}
+                                        <span class="lever"></span>
                                         <label for="food_availability">موجود بودن غذا</label>
                                         {{ create_form.food_availability.errors }}
                                     </div>
@@ -139,14 +141,14 @@
                                         {{ create_form.food_category.errors }}
                                     </div>
                                 </div>
-                                <div class="file-field input-field col xl4 l4 m6  s12">
-                                    <div class="waves-effect waves-light btn teal">
+                                <div class="file-field input-field col xl4 l4 m6  s12"  >
+                                    <div class="waves-effect waves-light btn teal" style="color: white;border-radius: 10%;">
                                         <span> تصویر </span>
                                         {{ create_form.food_img.errors }}
                                     </div>
                                 </div>
                             </div>
-                            <div class="btn waves-effect waves-light teal col xl3 l3 m6  s12">
+                            <div class="btn waves-effect waves-light teal col xl1 l3 m6  s6" style="border-radius: 10%;padding-top: 0.6%;">
                                 <input style="color: white;font-size: larger;" type="submit" name="create_1"
                                        value="ایجاد">
                             </div>
@@ -234,7 +236,35 @@
                        value="+">
             </div>
         </form>
-           <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog"
+{#           <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog"#}
+{#         aria-labelledby="exampleModalLabel" aria-hidden="true">#}
+{#        <div class="modal-dialog" role="document">#}
+{#            <div class="modal-content">#}
+{##}
+{#                <div class="modal-header">#}
+{#                    <div>#}
+{#                        <h5 class="modal-title" id="exampleModalLabel">#}
+{#                            <div style="text-align:center;">#}
+{#                                حذف#}
+{#                            </div>#}
+{#                        </h5>#}
+{#                    </div>#}
+{#                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#                        <span aria-hidden="true">&times;</span>#}
+{#                    </button>#}
+{#                </div>#}
+{#                <div class="modal-body" style="text-align:center;font-family: shabnam;">#}
+{#                    آیا مطمعنید میخواهید این غذا را حذف کنید؟#}
+{#                </div>#}
+{##}
+{#                <div class="modal-footer">#}
+{#                    <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>#}
+{#                  <a id="food_remove_link"  class="btn btn-secondary" role="button" href="#"><a href="{% url 'restaurant_admin:Food_delete' pk=food.pk %}"></a>حذف</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -270,7 +300,7 @@
 <script src="{% static 'Restaurant_admin/MDB/js/jquery-3.4.0.min.js' %}"></script>
 <script src="{% static 'Restaurant_admin/MDB/js/popper.min.js' %}"></script>
 <script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.min.js' %}"></script>
-<!-- <script src="{% static 'Restaurant_admin/assets/js/jquery-3.4.0.slim.min.js' %}"></script> -->
+<script src="{% static 'Restaurant_admin/assets/js/jquery-3.4.0.slim.min.js' %}"></script>
 <script src="{% static 'Restaurant_admin/assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'Restaurant_admin/MDB/js/mdb.min.js' %}"></script>
 <script>
