@@ -113,3 +113,6 @@ main {
 .waves-effect input{
     color: white;
 }
+.card{
+    margin: 2% !important;
+}

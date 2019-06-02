@@ -152,7 +152,7 @@ a{
     color:white;
 }
 .modal{
-    background-color:transparent;
+    background: none !important;
 
     z-index: 1050;
 height:auto;
